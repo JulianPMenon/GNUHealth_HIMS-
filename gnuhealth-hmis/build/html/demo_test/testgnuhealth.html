@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Different ways to test GNU Health &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Demo database" href="demodb.html" />
+    <link rel="prev" title="Demo and test environments" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demo and test environments</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Different ways to test GNU Health</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-this-page">About this page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-1-connect-to-the-demo-database">Option 1: Connect to the Demo Database</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-to-do">What to do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#option-2-run-gnu-health-from-cd-dvd-or-usb-stick">Option 2: Run GNU Health from CD/DVD or USB Stick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-what-to-do">What to do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#option-3-run-gnu-health-in-a-virtual-machine">Option 3: Run GNU Health in a Virtual Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-what-to-do">What to do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-advantages">Advantages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-disadvantages">Disadvantages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="demodb.html">The Demo database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livecd.html">The Live-CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livecd.html#virtual-machine-images">Virtual Machine Images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Demo and test environments</a></li>
+      <li class="breadcrumb-item active">Different ways to test GNU Health</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demo_test/testgnuhealth.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="different-ways-to-test-gnu-health">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health"></span><h1>Different ways to test GNU Health<a class="headerlink" href="#different-ways-to-test-gnu-health" title="Link to this heading"></a></h1>
+<section id="about-this-page">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-about-this-page"></span><h2>About this page<a class="headerlink" href="#about-this-page" title="Link to this heading"></a></h2>
+<p>Are you a doctor, a nurse, a hospital administrator or a representative of a health department? Do you want to try out GNU Health by yourself? Then you have several options described on this page. Each option has its advantages and disadvantages. Some of them are simpler than others, but you don’t have to be a programmer or system administrator to use them.</p>
+<p>Please note that the only purpose of this page is to give you an overview and to allow you to choose the option that fits your needs best. For detailed instructions please follow the indicated links.</p>
+</section>
+<section id="option-1-connect-to-the-demo-database">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-1-connect-to-the-demo-database"></span><h2>Option 1: Connect to the Demo Database<a class="headerlink" href="#option-1-connect-to-the-demo-database" title="Link to this heading"></a></h2>
+<section id="what-to-do">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-1-connect-to-the-demo-database-what-to-do"></span><h3>What to do<a class="headerlink" href="#what-to-do" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Download and install the free Tryton client software on your computer.</p></li>
+<li><p>Start the Tryton client software and connect to the GNU Health Demo Database over the Internet.</p></li>
+</ul>
+<p><a class="reference internal" href="demodb.html#demo-test-demodb-the-demo-database"><span class="std std-ref">Please refer to this chapter</span></a> for more information.</p>
+</section>
+<section id="advantages">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-1-connect-to-the-demo-database-advantages"></span><h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This option is the quickest and simplest way for your first hands-on experience with GNU Health.</p></li>
+<li><p>The Tryton client is available for Windows, Mac OS and GNU/Linux.</p></li>
+</ul>
+</section>
+<section id="disadvantages">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-1-connect-to-the-demo-database-disadvantages"></span><h3>Disadvantages<a class="headerlink" href="#disadvantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>You have to be connected to the Internet.</p></li>
+<li><p>The Demo Database will be reset periodically, which is not ideal for a long-term test.</p></li>
+<li><p>You are sharing the Demo Database with other users, so they might interfere with your data.</p></li>
+</ul>
+</section>
+</section>
+<section id="option-2-run-gnu-health-from-cd-dvd-or-usb-stick">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick"></span><h2>Option 2: Run GNU Health from CD/DVD or USB Stick<a class="headerlink" href="#option-2-run-gnu-health-from-cd-dvd-or-usb-stick" title="Link to this heading"></a></h2>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-what-to-do">
+<span id="id1"></span><h3>What to do<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-what-to-do" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Download the Live CD image and burn it to a CD/DVD or write it to an USB stick.</p></li>
+<li><p>Boot your computer from this CD/DVD or USB stick. This will turn your Windows computer temporarily into a GNU/Linux computer (e.g., an openSUSE operation system with KDE desktop environment) with a preinstalled GNU Health server including the Demo Database.</p></li>
+</ul>
+<p><a class="reference internal" href="livecd.html#demo-test-livecd-the-live-cd"><span class="std std-ref">Please refer to this chapter</span></a> for more information.</p>
+</section>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-advantages">
+<span id="id2"></span><h3>Advantages<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-advantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>After the download you will not need an Internet connection anymore.</p></li>
+<li><p>This option gives you full access to the GNU Health server.</p></li>
+<li><p>You can install the system from the running Live-CD to your computer</p></li>
+<li><p>It is possible to setup your own database(s) besides the demo database (USB only)</p></li>
+</ul>
+</section>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-disadvantages">
+<span id="id3"></span><h3>Disadvantages<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-2-run-gnu-health-from-cd-dvd-or-usb-stick-disadvantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Booting and running a computer from a CD/DVD is slow. (It’s quicker from the USB stick but still slow.)</p></li>
+<li><p>CD’s cannot store much data(up to 650 MB/4.7-9.4 GB for DVD). This means that even if you do use a rewritable CD, you will be space-limited on what you can save.</p></li>
+<li><p>You need to know how to write a CD image to a CD or USB stick and how to change the boot sequence in the BIOS settings of your computer.</p></li>
+<li><p>Some computers do not allow for booting from CD or USB.</p></li>
+<li><p>While using the Live CD you don’t have access to the programs on your computer, so you can’t test GNU Health and work with your Windows applications in parallel.</p></li>
+<li><p>This method may not work on Apple-brand PCs.</p></li>
+</ul>
+</section>
+</section>
+<section id="option-3-run-gnu-health-in-a-virtual-machine">
+<span id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine"></span><h2>Option 3: Run GNU Health in a Virtual Machine<a class="headerlink" href="#option-3-run-gnu-health-in-a-virtual-machine" title="Link to this heading"></a></h2>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-what-to-do">
+<span id="id4"></span><h3>What to do<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-what-to-do" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Download the virtual machine image to your harddisk and unpack it. (The virtual machine image can be found on the same webpage like the Live CD image – see option 2.)</p></li>
+<li><p>Download and install the VirtualBox software (or any other emulator) on your computer.</p></li>
+<li><p>Run VirtualBox, locate the virtual machine image and start your virtual machine.</p></li>
+</ul>
+<p><a class="reference internal" href="livecd.html#demo-test-livecd-virtual-machine-images"><span class="std std-ref">Please refer to this chapter</span></a> for more information.</p>
+</section>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-advantages">
+<span id="id5"></span><h3>Advantages<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-advantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This option gives you all advantages of the Live CD (option 2) without its disadvantages.</p></li>
+<li><p>The VM can serve as a base for a later production use.</p></li>
+</ul>
+</section>
+<section id="demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-disadvantages">
+<span id="id6"></span><h3>Disadvantages<a class="headerlink" href="#demo-test-testgnuhealth-different-ways-to-test-gnu-health-option-3-run-gnu-health-in-a-virtual-machine-disadvantages" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The virtual machine is stored on your harddrive. Therefore it needs a bit more effort to pass the test installation to someone else compared to the Live CD.</p></li>
+<li><p>The performance will be slower as the virtual machine is also sharing the power of your machine.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Demo and test environments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demodb.html" class="btn btn-neutral float-right" title="The Demo database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

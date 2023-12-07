@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules in Detail &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Socioeconomics" href="socioeconomics.html" />
+    <link rel="prev" title="Thalamus" href="../gnuhealthfederation/thalamus.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules in Detail</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html">Socioeconomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html">Lifestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functioninganddisability.html">Functioning and Disapility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gynecology.html">Gynecology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html">Obstetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html">Genetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html">Surgery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pediatric.html">Pediatric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nursing.html">Nursing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imaging.html">Imaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html">Inpatient Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icu.html">Intensive Care Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neglectedtropicaldiseases.html">Neglected Tropical Diseases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html">Reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Modules in Detail</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modulesindetail/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modules-in-detail">
+<span id="modulesindetail-index-modules-in-detail"></span><h1>Modules in Detail<a class="headerlink" href="#modules-in-detail" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="socioeconomics.html">Socioeconomics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html#introduction-to-socioeconomics">Introduction to Socioeconomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html#main-tab"><em>Main</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html#infrastructure-tab"><em>Infrastructure</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html#family-tab"><em>Family</em> Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lifestyle.html">Lifestyle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html#introduction-to-lifestyle">Introduction to Lifestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html#diet-and-exercise-tab"><em>Diet and Exercise</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html#addictions-tab"><em>Addictions</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html#sexuality-tab"><em>Sexuality</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html#safety-tab"><em>Safety</em> Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="functioninganddisability.html">Functioning and Disapility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gynecology.html">Gynecology</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gynecology.html#introduction-to-gynecology">Introduction to Gynecology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gynecology.html#general-tab"><em>General</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gynecology.html#screening-tab"><em>Screening</em> Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="obstetrics.html">Obstetrics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html#introduction-to-obstetrics">Introduction to Obstetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html#general-pregnancy-information">General Pregnancy Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html#prenatal-evaluations">Prenatal Evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html#perinatal-and-intrapartum-information">Perinatal and Intrapartum Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html#puerperium-monitor">Puerperium Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="genetics.html">Genetics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html#genetic-information">Genetic Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html#family-history">Family History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html#protein-related-diseases">Protein Related Diseases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="surgery.html">Surgery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html#introduction-to-surgery">Introduction to Surgery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html#surgeries-per-patient">Surgeries per Patient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html#all-surgeries">All Surgeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html#surgeries-form"><em>Surgeries</em> Form</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pediatric.html">Pediatric</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pediatric.html#introduction-to-pediatrics-section">Introduction to Pediatrics Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pediatric.html#neonatology">Neonatology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pediatric.html#psc-pediatrics-symptom-checklist">PSC (Pediatrics Symptom Checklist)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nursing.html">Nursing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nursing.html#introduction-to-nursing">Introduction to Nursing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nursing.html#roundings">Roundings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nursing.html#ambulatory-care">Ambulatory Care</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imaging.html">Imaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="imaging.html#default-imaging-module">Default imaging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imaging.html#orthanc-integration">Orthanc Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inpatientmanagement.html">Inpatient Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#introduction-to-inpatient-management">Introduction to Inpatient Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#admission-process">Admission Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#administrative-data-tab"><em>Administrative Data</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#nutrition-tab"><em>Nutrition</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#medication-plan-tab"><em>Medication Plan</em> Tab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html#care-plan-tab"><em>Care Plan</em> Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="icu.html">Intensive Care Unit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="icu.html#introduction-to-the-icu-functionality">Introduction to the ICU Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icu.html#patient-icu-information">Patient ICU Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icu.html#patient-rounding">Patient Rounding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="neglectedtropicaldiseases.html">Neglected Tropical Diseases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="neglectedtropicaldiseases.html#introduction-to-neglected-tropical-diseases">Introduction to Neglected Tropical Diseases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neglectedtropicaldiseases.html#chagas-disease">Chagas Disease</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neglectedtropicaldiseases.html#dengue-fever">Dengue Fever</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reporting.html">Reporting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#demographics-summary">Demographics Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#patient-evaluations">Patient Evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#top-diseases">Top Diseases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#injury-surveillance-system-registration">Injury Surveillance System Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#specialties-by-health-professionals">Specialties by health professionals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html#evaluations-report">Evaluations Report</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../gnuhealthfederation/thalamus.html" class="btn btn-neutral float-left" title="Thalamus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="socioeconomics.html" class="btn btn-neutral float-right" title="Socioeconomics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

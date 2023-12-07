@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GNU Health Embedded &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GNU Health Federation Technical Guide" href="../techguide/index.html" />
+    <link rel="prev" title="The GNU Health Embedded project" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">The GNU Health Embedded project</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GNU Health Embedded</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#raspberry-pi">Raspberry Pi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#downloading-the-images">Downloading the images</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard-installations">Standard installations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-the-image">Getting the Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main-users">Main users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#services">Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">The GNU Health Embedded project</a></li>
+      <li class="breadcrumb-item active">GNU Health Embedded</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/embedded/embedded.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gnu-health-embedded">
+<span id="embedded-embedded-gnu-health-embedded"></span><h1>GNU Health Embedded<a class="headerlink" href="#gnu-health-embedded" title="Link to this heading"></a></h1>
+<p>The GNU Health Embedded sub-project (“GNU Health in a Box”) focuses on the installation and use of GNU Health in single-board devices.</p>
+<p>The use of GNU Health in single board devices such as the Raspberry Pi has many advantages (in addition to the low cost) such as the easy deployment, little maintenance and low energy consumption that makes it a candidate for some of the following scenarios :</p>
+<ul class="simple">
+<li><p>Remote areas without Internet,</p></li>
+<li><p>Academic Institutions,</p></li>
+<li><p>Domiciliary Units,</p></li>
+<li><p>Vector Control,</p></li>
+<li><p>Nursing,</p></li>
+<li><p>ICU,</p></li>
+<li><p>Laboratory stations, and</p></li>
+<li><p>Personal Health Records.</p></li>
+</ul>
+<p>The device is a full server, that has its own database, allowing storing the information locally, without the need of a network. That said, keep in mind that it is a low-resource device, so its usage must be carefully planned, and it’s not suitable for high-demand, heavy-load environments, where a regular server would be needed.</p>
+<section id="raspberry-pi">
+<span id="embedded-embedded-gnu-health-embedded-raspberry-pi"></span><h2>Raspberry Pi<a class="headerlink" href="#raspberry-pi" title="Link to this heading"></a></h2>
+<p>Currently we are working on the Raspberry Pi 3 platform.</p>
+</section>
+<section id="downloading-the-images">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images"></span><h2>Downloading the images<a class="headerlink" href="#downloading-the-images" title="Link to this heading"></a></h2>
+<p>You can find and download the latest images for different operating systems on the GNU Health embedded project link <a class="reference external" href="https://www.gnuhealth.org/embedded.html">GNU Health embedded project</a>.</p>
+<p>The current directory shows the images that use the standard / vanilla installation, which is compatible with the installation instructions you find in this Wikibook.</p>
+<p>Other images can be found at the community pages. For instance, Axel Braun provides an openSUSE image that uses the packages from that GNU/Linux distribution.</p>
+<section id="standard-installations">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-standard-installations"></span><h3>Standard installations<a class="headerlink" href="#standard-installations" title="Link to this heading"></a></h3>
+<p>The standard images for the different operating systems have the following naming convention :</p>
+<p><code class="code docutils literal notranslate"><span class="pre">gnuhealth-&lt;**version**&gt;-&lt;**platform**&gt;-&lt;**medium**&gt;-&lt;**operating_system-distro-version**&gt;.img.gz</span></code></p>
+<p>For example :</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">gnuhealth-3.6.2-rpi3-SD-opensuse-leap15.1-e20.img.gz</span></code> or the latest image</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">gnuhealth-3.6.4-rpi4-SD-opensuse-leap15.2-xfce.img.gz</span></code> for the Raspberry Pi 4.</p></li>
+</ul>
+</section>
+<section id="getting-the-image">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-getting-the-image"></span><h3>Getting the Image<a class="headerlink" href="#getting-the-image" title="Link to this heading"></a></h3>
+<p>You can get the latest status and download packages on the GNU health main site, under the section “GNU Health Embedded”. See
+<a class="reference external" href="https://www.gnuhealth.org/embedded.html">GNU Health embedded project</a>.</p>
+<section id="download-the-image-locally">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-getting-the-image-download-the-image-locally"></span><h4>Download the image locally<a class="headerlink" href="#download-the-image-locally" title="Link to this heading"></a></h4>
+<p>You can either download directly the image from your browser, or using wget.</p>
+<p>For example :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>wget<span class="w"> </span>https://www.gnuhealth.org/downloads/embedded/raspberry/rpi4/gnuhealth-3.6.4-rpi4-SD-opensuse-leap15.2-xfce.img.gz
+</pre></div>
+</div>
+</section>
+<section id="uncompress-the-image">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-getting-the-image-uncompress-the-image"></span><h4>Uncompress the image<a class="headerlink" href="#uncompress-the-image" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gunzip<span class="w"> </span>gnuhealth-3.6.4-rpi4-SD-opensuse-leap15.2-xfce.img.gz
+</pre></div>
+</div>
+</section>
+<section id="burn-the-image-to-the-sd-card">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-getting-the-image-burn-the-image-to-the-sd-card"></span><h4>Burn the image to the SD card<a class="headerlink" href="#burn-the-image-to-the-sd-card" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Insert your SD card in the computer but <strong>DO NOT</strong> mount it!</p></li>
+<li><p>Determine the block device name that has been assigned to the SD card.</p>
+<blockquote>
+<div><p>The <strong>lsblk</strong> command is also useful as it outputs attached devices in a pleasant format:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>NAME<span class="w">                                 </span>MAJ:MIN<span class="w"> </span>RM<span class="w">   </span>SIZE<span class="w"> </span>RO<span class="w"> </span>TYPE<span class="w">  </span>MOUNTPOINT
+<span class="linenos">2</span>sda<span class="w">                                    </span><span class="m">8</span>:0<span class="w">    </span><span class="m">0</span><span class="w"> </span><span class="m">931</span>,5G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
+<span class="linenos">3</span>└─cr_ata-ST1000LM035-1RK172_WKP1RMG3<span class="w"> </span><span class="m">254</span>:0<span class="w">    </span><span class="m">0</span><span class="w"> </span><span class="m">931</span>,5G<span class="w">  </span><span class="m">0</span><span class="w"> </span>crypt<span class="w"> </span>/home
+<span class="linenos">4</span>mmcblk0<span class="w">                              </span><span class="m">179</span>:0<span class="w">    </span><span class="m">0</span><span class="w">  </span><span class="m">14</span>,4G<span class="w">  </span><span class="m">0</span><span class="w"> </span>disk
+<span class="linenos">5</span>├─mmcblk0p1<span class="w">                          </span><span class="m">179</span>:1<span class="w">    </span><span class="m">0</span><span class="w">   </span><span class="m">1</span>,6G<span class="w">  </span><span class="m">0</span><span class="w"> </span>part
+<span class="linenos">6</span>├─mmcblk0p2<span class="w">                          </span><span class="m">179</span>:2<span class="w">    </span><span class="m">0</span><span class="w">     </span>1K<span class="w">  </span><span class="m">0</span><span class="w"> </span>part
+<span class="linenos">7</span>└─mmcblk0p5<span class="w">                          </span><span class="m">179</span>:5<span class="w">    </span><span class="m">0</span><span class="w">    </span>32M<span class="w">  </span><span class="m">0</span><span class="w"> </span>part
+</pre></div>
+</div>
+<p>The important thing is that you find it and, again, DO NOT mount the device.
+This is the drive you will transfer the image to.</p>
+</div></blockquote>
+</li>
+<li><p>Initialize the SD card with GNU Health</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following instruction will COMPLETELY ERASE the contents on the ENTIRE SD card!</p>
+</div>
+<p>In this example, the SD card is associated to <strong>mmcblk0</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>gnuhealth-3.6.4-rpi4-SD-opensuse-leap15.2-xfce.img<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>4M<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/mmcblk0<span class="w"> </span><span class="nv">iflag</span><span class="o">=</span>fullblock<span class="w"> </span><span class="nv">oflag</span><span class="o">=</span>direct<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress<span class="p">;</span><span class="w"> </span>sync
+</pre></div>
+</div>
+<p>This will take a while.
+It is highly recommended to use a high-speed SD card.</p>
+</section>
+<section id="boot-the-raspberry-pi-with-the-gnu-health-image">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-getting-the-image-boot-the-raspberry-pi-with-the-gnu-health-image"></span><h4>Boot the Raspberry Pi with the GNU Health image<a class="headerlink" href="#boot-the-raspberry-pi-with-the-gnu-health-image" title="Link to this heading"></a></h4>
+<p>If the dd command finished successfully, you can now place the SD card into the Raspberry Pi device, and boot the little server.</p>
+</section>
+</section>
+<section id="main-users">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-main-users"></span><h3>Main users<a class="headerlink" href="#main-users" title="Link to this heading"></a></h3>
+<p>The two main OS users are :</p>
+<ul class="simple">
+<li><p><strong>root</strong> : default password “freedom”&lt;br&gt;</p></li>
+<li><p><strong>gnuhealth</strong> : The GNU Health admin. Default password “freedom”</p></li>
+</ul>
+</section>
+<section id="services">
+<span id="embedded-embedded-gnu-health-embedded-downloading-the-images-services"></span><h3>Services<a class="headerlink" href="#services" title="Link to this heading"></a></h3>
+<p>The main services (PostgreSQL, GNU Health HMIS, display manager) are enabled by default.
+Refer to the GNU Health and your operating system guides to manage them.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="The GNU Health Embedded project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../techguide/index.html" class="btn btn-neutral float-right" title="GNU Health Federation Technical Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

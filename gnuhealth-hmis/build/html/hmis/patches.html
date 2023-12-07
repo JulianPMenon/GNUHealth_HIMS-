@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patches and Patchsets &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrade" href="upgrade.html" />
+    <link rel="prev" title="The SYSINFO Command" href="sysinfo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GNU Health HMIS Node Technical Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/index.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="centralauthentication.html">Central Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlcenter.html">The GNU Health Control Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sysinfo.html">The SYSINFO Command</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Patches and Patchsets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-gnu-health-patchsets">About GNU Health Patchsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#patches-vs-patchsets">Patches vs Patchsets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#patches">Patches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patchsets">Patchsets</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#criteria-for-a-new-patchset-release">Criteria for a New Patchset Release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applying-patchsets">Applying Patchsets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applying-patchsets-manually-unsupported">Applying Patchsets manually (Unsupported)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups and High-Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restserver.html">FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usingrestserver.html">Using the FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GNU Health HMIS Node Technical Guide</a></li>
+      <li class="breadcrumb-item active">Patches and Patchsets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/hmis/patches.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="patches-and-patchsets">
+<span id="hmis-patches-patches-and-patchsets"></span><h1>Patches and Patchsets<a class="headerlink" href="#patches-and-patchsets" title="Link to this heading"></a></h1>
+<section id="about-gnu-health-patchsets">
+<span id="hmis-patches-patches-and-patchsets-about-gnu-health-patchsets"></span><h2>About GNU Health Patchsets<a class="headerlink" href="#about-gnu-health-patchsets" title="Link to this heading"></a></h2>
+<p>Since version 2.2.1, patchsets will be released for the GNU Health stable versions (those with even minor number, e.g. 1. <strong>2</strong> .3 ).</p>
+<p>Suppose the following scenario: The health center GNU SOLIDARIO HOSPITAL installs version 2.2.0. After some weeks of running the server in the production environment, a bug is discovered that affects the <code class="code docutils literal notranslate"><span class="pre">health_service</span></code> module. It’s not a critical bug but it should be addressed shortly.</p>
+<p>In the meantime, the bug has been reported and it has been fixed and documented. The system administrator at GNU SOLIDARIO HOSPITAL has two options:</p>
+<ol class="arabic simple">
+<li><p>Download and apply the individual patch using the patch tool.</p></li>
+<li><p>Wait and apply the latest patchset.</p></li>
+</ol>
+<p>It will be the context that will determine which method to use, but a general rule,Mercurial <strong>unless you are in the context of a critical bug, you should use the patchset approach.</strong></p>
+<p>Some general ideas:</p>
+<ul class="simple">
+<li><p>The patches and patchsets don’t require to do the whole installation again. The scripts are usually small and the installation time is very short in general.</p></li>
+<li><p>The patchsets are valid for minor numbers (e.g. 2.0.x, 2.2.x).</p></li>
+</ul>
+<p>Whenever a patchset is generated, a new GNU Health version is released, with the patchlevel number of the patchset.</p>
+</section>
+<section id="patches-vs-patchsets">
+<span id="hmis-patches-patches-and-patchsets-patches-vs-patchsets"></span><h2>Patches vs Patchsets<a class="headerlink" href="#patches-vs-patchsets" title="Link to this heading"></a></h2>
+<p>This section discusses the general concepts behind a patch and a patchset, and when to use one or the other.</p>
+<section id="patches">
+<span id="hmis-patches-patches-and-patchsets-patches-vs-patchsets-patches"></span><h3>Patches<a class="headerlink" href="#patches" title="Link to this heading"></a></h3>
+<p>Generally speaking, a patch is a portion of code that fixes a program or its components. In GNU Health, a patch is a “patch file” generated in a <a class="reference external" href="https://en.wikipedia.org/wiki/Mercurial">Mercurial</a> specific <a class="reference external" href="https://en.wikipedia.org/wiki/Changeset">Changeset</a> .The patch file (diff) modifies specific sections of code, not replacing the whole file. It is applied with the <a class="reference external" href="https://en.wikipedia.org/wiki/%28Patch_%28Unix%29">Patch</a> command. As stated before, the patch is associated to a specific changeset, but not necesarily to the latest patch-level number (third component of the version number, e.g. 1.2. <strong>3</strong>).</p>
+<p>Pros of patches:</p>
+<ul class="simple">
+<li><p>They are available immediately: If it’s a critical bug, you can patch it immediately, no need to wait for the patchset.</p></li>
+<li><p>Very specific: Because of this high specificity, many times you could apply a patch in GNU Health with a running system, not affecting the availability.</p></li>
+</ul>
+<p>Cons of patches:</p>
+<ul class="simple">
+<li><p>Requires more technical knowledge</p></li>
+<li><p>Very specific</p></li>
+<li><p>More cumbersome when dealing with binary files, like LibreOffice Reports</p></li>
+<li><p>Need to keep track of other un-applied patches</p></li>
+</ul>
+<p>The high specificity of the patch makes it both a pro and a con. So it’s quite operator dependent. <strong>We recommend avoid using patches unless is a critical bug that must be applied immediately.</strong></p>
+</section>
+<section id="patchsets">
+<span id="hmis-patches-patches-and-patchsets-patches-vs-patchsets-patchsets"></span><h3>Patchsets<a class="headerlink" href="#patchsets" title="Link to this heading"></a></h3>
+<p>Patchsets act at a higher level than patches, dealing with entire files and not chunks of code. They are packaged in the form of a compressed <a class="reference external" href="https://en.wikipedia.org/wiki/Tar_%28computing%29">ŧar</a> file.</p>
+<p>Applying a patchset is also a selective operation, in the sense that only part of the GNU Health kernel is modified.</p>
+<p>Pros of patchsets:</p>
+<ul class="simple">
+<li><p>Specific</p></li>
+<li><p>Can be re-applied after a patch</p></li>
+<li><p>Applies all patches in that time-frame, including non-critical patches that were collected over time</p></li>
+<li><p>Easier periodic installation / updates process</p></li>
+<li><p>Linked to a specific GNU Health version (the patchlevel number)</p></li>
+</ul>
+<p>Cons of patchsets:</p>
+<ul class="simple">
+<li><p>Not as immediate as patches. Although the time for critical patches should not exceed 24 hours.</p></li>
+</ul>
+</section>
+</section>
+<section id="criteria-for-a-new-patchset-release">
+<span id="hmis-patches-patches-and-patchsets-criteria-for-a-new-patchset-release"></span><h2>Criteria for a New Patchset Release<a class="headerlink" href="#criteria-for-a-new-patchset-release" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Bugs marked as critical / blockers</p></li>
+<li><p>Important security issues</p></li>
+<li><p>The number of non-critical bugs</p></li>
+</ol>
+</section>
+<section id="applying-patchsets">
+<span id="hmis-patches-patches-and-patchsets-applying-patchsets"></span><h2>Applying Patchsets<a class="headerlink" href="#applying-patchsets" title="Link to this heading"></a></h2>
+<p><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This section applies to version <strong>3.0</strong> of <strong>GNU Health</strong>.</p>
+</div>
+</p>
+<p>Since GNU Health 3.0, we have a new tool, the GNU Health Control Center. GNU Health control center facilitates common administration tasks, such as backups or system updates.
+To check the status of your Tryton and GNU Health kernel and modules, as well as to keep your system uptodate, please visit the section <a class="reference internal" href="controlcenter.html#hmis-controlcenter-the-gnu-health-control-center"><span class="std std-ref">The GNU Health Control Center</span></a></p>
+<p>Go to <a class="reference internal" href="controlcenter.html#hmis-controlcenter-the-gnu-health-control-center"><span class="std std-ref">The GNU Health Control Center</span></a> for the documentation on how to install the patchsets.</p>
+</section>
+<section id="applying-patchsets-manually-unsupported">
+<span id="hmis-patches-patches-and-patchsets-applying-patchsets-manually-unsupported"></span><h2>Applying Patchsets manually (Unsupported)<a class="headerlink" href="#applying-patchsets-manually-unsupported" title="Link to this heading"></a></h2>
+<p>The following method allows you to apply the patchset into a standard GNU Health installation, without using the official tool (gnuhealth-control). The manual installation does not check for the latest Tryton updates, is more complicated and should not be used. Please use <a class="reference internal" href="controlcenter.html#hmis-controlcenter-the-gnu-health-control-center"><span class="std std-ref">The GNU Health Control Center</span></a> unless you know what you’re doing.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>GNU Health does not support this method</p>
+</div>
+<ul class="simple">
+<li><p>Read the instructions related to the patchset in Savannah. Depending on the patch you might need to update the module(s).</p></li>
+<li><p>Stop the GNU Health instance.</p></li>
+<li><p>Backup your kernel and database (always, no matter how small is the patch).</p></li>
+<li><p>Log in using the <strong>gnuhealth</strong> account.</p></li>
+<li><p><strong>Don’t change directories.</strong> Stay at your $HOME. Verify that you are in the <code class="code docutils literal notranslate"><span class="pre">/home/gnuhealth</span></code>.</p></li>
+<li><p>Download the latest patchset for your Major.minor number. For example, if you are in version 3.0.x:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>wget<span class="w"> </span>http://ftp.gnu.org/gnu/health/gnuhealth_patchset-3.0.latest.tar.gz
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Uncompress the patchset:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>tar<span class="w"> </span>-xzvf<span class="w"> </span>gnuhealth_patchset-3.0.latest.tar.gz
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restart the server.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sysinfo.html" class="btn btn-neutral float-left" title="The SYSINFO Command" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="upgrade.html" class="btn btn-neutral float-right" title="Upgrade" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

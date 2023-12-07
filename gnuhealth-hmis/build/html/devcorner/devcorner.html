@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer’s Corner &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Appendix" href="../appendix/index.html" />
+    <link rel="prev" title="Federation Technical Guide" href="../techguide/techguide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer’s Corner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hospital-management-information-system">Hospital Management Information System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#wishlist">Wishlist</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade">Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gtk-client">GTK Client</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#plugins">Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#web-client">Web Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interfaces">Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gnu-health-federation">GNU Health Federation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thalamus">Thalamus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gh-federation-portal">GH Federation Portal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mygnuhealth-mobile-application">MyGNUHealth mobile application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation-of-mygnuhealth-pinephone-and-manjaro-plasma-mobile">Installation of MyGNUHealth PinePhone and Manjaro Plasma Mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-on-pinephone-and-kde-neon">Installation on PinePhone and KDE Neon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-on-the-desktop">Installation on the Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#orthanc-integration">Orthanc integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer’s Corner</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/devcorner/devcorner.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="developer-s-corner">
+<span id="devcorner-devcorner-developer-s-corner"></span><h1>Developer’s Corner<a class="headerlink" href="#developer-s-corner" title="Link to this heading"></a></h1>
+<p>This chapter focus on the development of the upcoming version in different components of GNU Health</p>
+<p>The developer’s corner is <strong>highly volatile</strong>. It’s chaotic and unstable, and we love it like that ;)</p>
+<p>Please respect the target build of each component.</p>
+<section id="hospital-management-information-system">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system"></span><h2>Hospital Management Information System<a class="headerlink" href="#hospital-management-information-system" title="Link to this heading"></a></h2>
+<p><strong>Target build : 4.0</strong></p>
+<p><strong>openSUSE Leap &lt;=15.3 and other OS using Python 3.6</strong>
+It’s highly recommended to use <strong>Python versions &gt;=3.7</strong></p>
+<p>If your distribution uses Python 3.6, then you must enforce the following dependencies versions:</p>
+<ul class="simple">
+<li><p>apiron==5.1.0</p></li>
+<li><p>beren==0.7.0</p></li>
+</ul>
+<section id="wishlist">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-wishlist"></span><h3>Wishlist<a class="headerlink" href="#wishlist" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>New GNU Health WebGUI which supports all GNU Health features and works as well on Tablet and Smartphone. It should have a new UX Design and clearly not replicate the GTK design</p></li>
+<li><p>Redesign GTK Client - Etienne mentioned some improvements</p></li>
+<li><p>Interface to AI providers like Planet-AI</p></li>
+<li><p>Integration of the Tryton pos module with the pharmacy module</p></li>
+<li><p>Integration with DHIS2</p></li>
+</ul>
+</section>
+<section id="upgrade">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-upgrade"></span><h3>Upgrade<a class="headerlink" href="#upgrade" title="Link to this heading"></a></h3>
+<p>BEFORE THE UPGRADE:</p>
+<ol class="arabic simple">
+<li><p>Execute the script <code class="code docutils literal notranslate"><span class="pre">before.sql</span></code></p></li>
+<li><p>update tryton server (<code class="code docutils literal notranslate"><span class="pre">./trytond-admin</span> <span class="pre">--all</span></code>)</p></li>
+</ol>
+<p>AFTER THE UPGRADE:</p>
+<ol class="arabic simple">
+<li><p>Execute the script <code class="code docutils literal notranslate"><span class="pre">after.sql</span></code></p></li>
+<li><p>The Calendar and Webdav menus might shown twice. Just deactivate the obsolete first instance (Administration → User Interface → Menu)</p></li>
+</ol>
+</section>
+<section id="gtk-client">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-gtk-client"></span><h3>GTK Client<a class="headerlink" href="#gtk-client" title="Link to this heading"></a></h3>
+<p>The GNU Health GTK client beta is at <strong>testpypi</strong></p>
+<p>You can download it using the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.org/simple/<span class="w"> </span>gnuhealth-client<span class="o">==</span><span class="m">4</span>.0b1
+</pre></div>
+</div>
+<section id="plugins">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-gtk-client-plugins"></span><h4>Plugins<a class="headerlink" href="#plugins" title="Link to this heading"></a></h4>
+<p>The search path for plugins goes like this:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>&lt;config dir&gt;/plugins</strong></dt><dd><p>Example: /home/lfm/.config/gnuhealth/3.5/plugin</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>&lt;current_gnuhealth_dir&gt;/tryton/plugins</strong></dt><dd><p>Example: /home/lfm/health/gnuhealth-client/tryton/plugins</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>$HOME/gnuhealth_plugins</strong></dt><dd><p>Example: /home/lfm/gnuhealth_plugins</p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>The third one (<code class="code docutils literal notranslate"><span class="pre">$HOME/gnuhealth_plugins</span></code>) is the recommended place for most users.  It makes easy automation and allows convenient drag and drop for plugins.</p>
+<p>The first option is recommended for users that have different GH GTK client versions installed.</p>
+</section>
+</section>
+<section id="web-client">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-web-client"></span><h3>Web Client<a class="headerlink" href="#web-client" title="Link to this heading"></a></h3>
+<p>The webclient is based on the Tryton SAO Webclient. It does not have the current functionality, desktop integration and security features as the GTK client.
+For developers only…</p>
+<p>INSTALLING SAO (as gnuhealth user)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>download<span class="w"> </span>https://downloads.tryton.org/6.0/tryton-sao-last.tgz
+<span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
+<span class="linenos">3</span>mkdir<span class="w"> </span>sao
+<span class="linenos">4</span><span class="nb">cd</span><span class="w"> </span>sao/package
+<span class="linenos">5</span>npm<span class="w"> </span>install
+<span class="linenos">6</span><span class="nb">cd</span><span class="w"> </span>/home/gnuhealth/sao/package/node_modules/.bin
+<span class="linenos">7</span>./grunt
+</pre></div>
+</div>
+<p>On the <code class="code docutils literal notranslate"><span class="pre">[web]</span></code> section :</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nv">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/gnuhealth/sao/package
+</pre></div>
+</div>
+</section>
+<section id="interfaces">
+<span id="devcorner-devcorner-developer-s-corner-hospital-management-information-system-interfaces"></span><h3>Interfaces<a class="headerlink" href="#interfaces" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="gnu-health-federation">
+<span id="devcorner-devcorner-developer-s-corner-gnu-health-federation"></span><h2>GNU Health Federation<a class="headerlink" href="#gnu-health-federation" title="Link to this heading"></a></h2>
+<section id="thalamus">
+<span id="devcorner-devcorner-developer-s-corner-gnu-health-federation-thalamus"></span><h3>Thalamus<a class="headerlink" href="#thalamus" title="Link to this heading"></a></h3>
+</section>
+<section id="gh-federation-portal">
+<span id="devcorner-devcorner-developer-s-corner-gnu-health-federation-gh-federation-portal"></span><h3>GH Federation Portal<a class="headerlink" href="#gh-federation-portal" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="mygnuhealth-mobile-application">
+<span id="devcorner-devcorner-developer-s-corner-mygnuhealth-mobile-application"></span><h2>MyGNUHealth mobile application<a class="headerlink" href="#mygnuhealth-mobile-application" title="Link to this heading"></a></h2>
+<section id="installation-of-mygnuhealth-pinephone-and-manjaro-plasma-mobile">
+<span id="devcorner-devcorner-developer-s-corner-mygnuhealth-mobile-application-installation-of-mygnuhealth-pinephone-and-manjaro-plasma-mobile"></span><h3>Installation of MyGNUHealth PinePhone and Manjaro Plasma Mobile<a class="headerlink" href="#installation-of-mygnuhealth-pinephone-and-manjaro-plasma-mobile" title="Link to this heading"></a></h3>
+<p>Install requirements</p>
+<ul class="simple">
+<li><p>Update de system (<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-Syu</span></code>)</p></li>
+<li><p>Install gcc (<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">gcc</span></code>)</p></li>
+<li><p>Install base devel tools (<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">base-devel</span></code>)</p></li>
+<li><p>Install pyside2 package (<code class="code docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">pyside2-es2</span></code>) (Make sure you use this package! The regular “pyside2” won’t work. Thanks Anupam!)</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>pacman<span class="w"> </span>-Syu<span class="w"> </span><span class="c1"># Update de system</span>
+<span class="linenos">2</span>pacman<span class="w"> </span>-S<span class="w"> </span>gcc<span class="w"> </span><span class="c1"># Install gcc</span>
+<span class="linenos">3</span>pacman<span class="w"> </span>-S<span class="w"> </span>base-devel<span class="w"> </span><span class="c1"># Install base devel tools</span>
+<span class="linenos">4</span>pacman<span class="w"> </span>-S<span class="w"> </span>pyside2-es2<span class="w"> </span><span class="c1"># Install pyside2 package; Make sure you use this package! Regular pyside2 won&#39;t work. Thanks Anupam!</span>
+</pre></div>
+</div>
+</section>
+<section id="installation-on-pinephone-and-kde-neon">
+<span id="devcorner-devcorner-developer-s-corner-mygnuhealth-mobile-application-installation-on-pinephone-and-kde-neon"></span><h3>Installation on PinePhone and KDE Neon<a class="headerlink" href="#installation-on-pinephone-and-kde-neon" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Install in a SD card the plasma-mobile latest image  (<a class="reference external" href="https://images.plasma-mobile.org/pinephone/">https://images.plasma-mobile.org/pinephone/</a>)</p></li>
+</ul>
+<p>Install required packages</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>apt-get<span class="w"> </span>install<span class="w">  </span>python3-pip
+<span class="linenos">2</span>apt-get<span class="w"> </span>install<span class="w"> </span>qt5-qmake
+<span class="linenos">3</span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake
+<span class="linenos">4</span>apt-get<span class="w"> </span>install<span class="w"> </span>qtbase5-dev
+<span class="linenos">5</span>apt-get<span class="w"> </span>install<span class="w"> </span>clang<span class="w"> </span>clang<span class="w"> </span>libclang-6.0-dev
+<span class="linenos">6</span>apt-get<span class="w"> </span>install<span class="w"> </span>qtbase5-private-dev
+<span class="linenos">7</span>apt-get<span class="w"> </span>install<span class="w"> </span>qtdeclarative5-dev<span class="w"> </span>qtdeclarative5-private-dev
+</pre></div>
+</div>
+<p>Create a swapfile (it will be needed during the building process)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>sudo<span class="w"> </span>bash
+<span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span>/opt
+<span class="linenos">3</span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>/dev/zero<span class="w"> </span><span class="nv">of</span><span class="o">=</span>swapfile<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>1G<span class="w"> </span><span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+<span class="linenos">4</span>mkswap<span class="w"> </span>swapfile
+<span class="linenos">5</span>swapon<span class="w"> </span>swapfile
+</pre></div>
+</div>
+<p>(you can later add it to the fstab if you want to have it permanent)
+add  to <code class="code docutils literal notranslate"><span class="pre">/etc/fstab</span></code></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>/opt/swapfile<span class="w">            </span>swap<span class="w">    </span>swap<span class="w">    </span>defaults<span class="w">        </span><span class="m">0</span><span class="w">       </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Download,extract and build PySide2
+<a class="reference external" href="https://doc.qt.io/qtforpython/gettingstarted-linux.html#.getting-pyside2">https://doc.qt.io/qtforpython/gettingstarted-linux.html#.getting-pyside2</a></p>
+<p>Fix the following symlinks that are broken:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pyside2/pyside-setup/pyside3_install/py3.6-qt5.14.2-64bit-release/bin$
+<span class="linenos">2</span>
+<span class="linenos">3</span>$<span class="w"> </span>ln<span class="w"> </span>-si<span class="w"> </span>/usr/bin/qtchooser<span class="w"> </span>./designe
+<span class="linenos">4</span>$<span class="w"> </span>ln<span class="w"> </span>-si<span class="w"> </span>/usr/bin/qtchooser<span class="w"> </span>./rc
+<span class="linenos">5</span>$<span class="w"> </span>ln<span class="w"> </span>-si<span class="w"> </span>/usr/bin/qtchooser<span class="w"> </span>./ui
+</pre></div>
+</div>
+</section>
+<section id="installation-on-the-desktop">
+<span id="devcorner-devcorner-developer-s-corner-mygnuhealth-mobile-application-installation-on-the-desktop"></span><h3>Installation on the Desktop<a class="headerlink" href="#installation-on-the-desktop" title="Link to this heading"></a></h3>
+<p>Nightly Builds to install MyGNHealth on a GNU/Linux Desktop are available at <a class="reference external" href="https://build.opensuse.org/package/show/Application:ERP:GNUHealth:3.6/mygnuhealth">OpenBuildService</a></p>
+</section>
+</section>
+<section id="orthanc-integration">
+<span id="devcorner-devcorner-developer-s-corner-orthanc-integration"></span><h2>Orthanc integration<a class="headerlink" href="#orthanc-integration" title="Link to this heading"></a></h2>
+<p>Notes obtained from C:</p>
+<p>PACS / DICOM goals</p>
+<p>For providers:</p>
+<blockquote>
+<div><ul>
+<li><p>Consistent access to imaging studies in multiple views / tabs</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Including accurate imaging information including type of imaging (CT, MRI, ultrasound, etc), date/time, location, and final report (essential if available)</p></li>
+<li><p>Quickly copy/paste images and reports (eg, into notes)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Easy imaging viewing through a robust PACS viewer</p></li>
+<li><p>Upload new (or newly obtained) imaging studies to local PACS server from outside sources</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Patients frequently bring imaging discs with previous studies which should be stored for better continuity of care and medical decision-making. Furthermore, outside images should be able to be stored for quicker access and local evaluation.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Send imaging studies to other locations and / or patients</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CD / DVD saving / “burning” (likely location specific)</p></li>
+<li><p>Send to outside medical office / provider via network (or CD/DVD)</p></li>
+<li><p>This assists in transfers of care and patient access to medical records.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Notify provider on new imaging results (configurable as appropriate)</p></li>
+</ul>
+</div></blockquote>
+<dl>
+<dt>For developers (see implementing the above goals with some notable details below)</dt><dd><ul>
+<li><p>Synchronization of relevant data in fault-tolerant and error-free way</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Reliability and accuracy are much more important than speed</p></li>
+<li><p>Support Orthanc and other servers (as possible)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Providers should interface with data in intuitive manner with appropriate data viewers</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Zero config for the providers</p></li>
+<li><p>Imaging studies → PACS viewer</p></li>
+<li><p>Final reports / etc→ PACS viewer or PDF / text viewer (if not built-in to PACS viewer)</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Bidirectional interactions with PACS server</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PACS authentication should be seamless for the multiple types of users (providers, admin, etc)</p></li>
+<li><p>Connecting remote studies to local patients</p></li>
+<li><p>Uploading imaging studies (as above) should be attached to local patient</p></li>
+<li><p>Expose multiple PACS endpoints / tasks to administrators</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Other:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Appropriate access restrictions for data and tasks</p></li>
+<li><p>Continuous access to data for providers (no downtime for updates or similar)</p></li>
+<li><p>Minimize bandwidth used (via avoiding unnecessary transfers) given resource restricted environments</p></li>
+<li><p>Network interactions should be encrypted via TLS or other similarly appropriate mechanism</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Ideas from G, rather details than general concept:</p>
+<ul class="simple">
+<li><p>Target error codes, until here only 401, “Invalid Domain” or “Success”</p></li>
+<li><p>When creating a patient in HMIS from patient in Orthanc: Adopt/suggest name, dob &amp; ID automatically</p></li>
+<li><p>Support DICOM preview inside client (Orthanc: Only link to open in browser yet, health_imaging: DICOM not supported)</p></li>
+<li><p>Add series &amp; instances as ressources? Orthanc module supports only patients &amp; studies, but Orthanc itself has patients, studies, series &amp; instances as ressources</p></li>
+</ul>
+<p>Open task/bug:</p>
+<ul class="simple">
+<li><p>“When requesting a DX image, have the possibility to send this to Orthanc “</p></li>
+<li><p>“When creating the DX imaging result, have the possibility to link the images/studies to data coming from orthanc”</p></li>
+</ul>
+<p>Bug #.59872</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../techguide/techguide.html" class="btn btn-neutral float-left" title="Federation Technical Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../appendix/index.html" class="btn btn-neutral float-right" title="Appendix" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

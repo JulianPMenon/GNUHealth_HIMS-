@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imaging &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inpatient Management" href="inpatientmanagement.html" />
+    <link rel="prev" title="Nursing" href="nursing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Modules in Detail</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="socioeconomics.html">Socioeconomics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifestyle.html">Lifestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functioninganddisability.html">Functioning and Disapility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gynecology.html">Gynecology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="obstetrics.html">Obstetrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="genetics.html">Genetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surgery.html">Surgery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pediatric.html">Pediatric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nursing.html">Nursing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Imaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-imaging-module">Default imaging module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-request">Creating a request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-results">Generating results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-results">View results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-available-tests">Configuring available tests</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#orthanc-integration">Orthanc Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#administration">Administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inpatientmanagement.html">Inpatient Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="icu.html">Intensive Care Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neglectedtropicaldiseases.html">Neglected Tropical Diseases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reporting.html">Reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Modules in Detail</a></li>
+      <li class="breadcrumb-item active">Imaging</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modulesindetail/imaging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="imaging">
+<span id="modulesindetail-imaging-imaging"></span><h1>Imaging<a class="headerlink" href="#imaging" title="Link to this heading"></a></h1>
+<section id="default-imaging-module">
+<span id="modulesindetail-imaging-imaging-default-imaging-module"></span><h2>Default imaging module<a class="headerlink" href="#default-imaging-module" title="Link to this heading"></a></h2>
+<p>The default GNU Health imaging module (health_imaging) provides basic imaging support and workflow. Only basic, non-DICOM images are supported. <strong>No DICOM viewer is provided</strong>.</p>
+<section id="creating-a-request">
+<span id="modulesindetail-imaging-imaging-default-imaging-module-creating-a-request"></span><h3>Creating a request<a class="headerlink" href="#creating-a-request" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Create draft request</p>
+<blockquote>
+<div><ul>
+<li><p>Wizard under Imaging → Dx Imaging - New’’</p></li>
+<li><p>Fill in:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Patient</p></li>
+<li><p>Urgent or not</p></li>
+<li><p>Specific test(s)</p></li>
+<li><p>Requesting doctor</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Click <em>Request</em></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>Generate order</dt><dd><ul>
+<li><p>Find draft requests under <em>Imaging → Dx Imaging - New → Draft</em></p></li>
+<li><p>Click <em>Request</em> button on the draft request in the detailed view</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Request will now be under the <em>Requested</em> tab</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="generating-results">
+<span id="modulesindetail-imaging-imaging-default-imaging-module-generating-results"></span><h3>Generating results<a class="headerlink" href="#generating-results" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Click <em>Generate Results</em> button on the form (under <em>Dx Imaging Requests</em>)</p></li>
+<li><p>Fill in data (available under the <em>Dx Imaging - Results</em> menu item)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add images under the <em>Images</em> tab</p></li>
+<li><p>Add comments under the <em>Comment</em> tab</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="view-results">
+<span id="modulesindetail-imaging-imaging-default-imaging-module-view-results"></span><h3>View results<a class="headerlink" href="#view-results" title="Link to this heading"></a></h3>
+<p>Results are found under the <em>Imaging → Dx Imaging - Results</em> menu item.</p>
+</section>
+<section id="configuring-available-tests">
+<span id="modulesindetail-imaging-imaging-default-imaging-module-configuring-available-tests"></span><h3>Configuring available tests<a class="headerlink" href="#configuring-available-tests" title="Link to this heading"></a></h3>
+<p>Available tests can be configured under the <em>Configuration → Dx Imaging</em> menu item.</p>
+<p>There are two sub-sections:</p>
+<ul class="simple">
+<li><p>Dx Imaging Test Types (MRI, Ultrasound, etc)</p></li>
+<li><p>Dx Imaging Tests (available tests)</p></li>
+</ul>
+</section>
+</section>
+<section id="orthanc-integration">
+<span id="modulesindetail-imaging-imaging-orthanc-integration"></span><h2>Orthanc Integration<a class="headerlink" href="#orthanc-integration" title="Link to this heading"></a></h2>
+<section id="introduction">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-introduction"></span><h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
+<p>This module (health_orthanc) provides a light integration between Orthanc DICOM servers and GNU Health. The module uses the robust REST API provided by Orthanc to synchronize patient and study information in GNU Health. Put simply, the code asks the Orthanc REST API what studies and patients it has and then saves that information locally in GNU Health. <strong>No image files are saved. No DICOM viewer provided.</strong></p>
+</section>
+<section id="usage">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-usage"></span><h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>A new dropdown menu titled <em>Orthanc</em> is available under <em>Health → Imaging</em>.</p>
+<p>The menu has 2 sub-sections:</p>
+<ul class="simple">
+<li><p>Patients</p></li>
+<li><p>Studies</p></li>
+</ul>
+<p>These sub-sections provide the list of studies and patients on the known Orthanc servers. You can filter and search normally. The views are generally read-only. On the list of Orthanc patients, however, some patients will be linked to local patients if the remote and local MRN/PUID match. Otherwise, Orthanc patients can be manually linked to a local patient by updating their patient field.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When an imaging request is completed, the result can be directly linked to Orthanc studies through the new <em>Studies</em> tab under the <em>Imaging → Dx Imaging - Results</em> entry.</p>
+</div>
+</section>
+<section id="administration">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-administration"></span><h3>Administration<a class="headerlink" href="#administration" title="Link to this heading"></a></h3>
+<section id="server-configuration">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-administration-server-configuration"></span><h4>Server configuration<a class="headerlink" href="#server-configuration" title="Link to this heading"></a></h4>
+<p>A new dropdown menu titled <em>Orthanc</em> is available under <em>Health → Configuration</em></p>
+<p>The menu has 2 sub-sections:</p>
+<ul class="simple">
+<li><p>Add Orthanc Server</p></li>
+<li><p>Servers</p></li>
+</ul>
+<p>To add a new remote server click <em>Add Orthanc Server</em>. This will open a wizard that guides the user through adding a server:</p>
+<ul class="simple">
+<li><p>Fill in the label (must be unique), full domain, username, and password.</p></li>
+<li><p>Click <em>Begin</em></p></li>
+</ul>
+<p>After a short time, a success message should appear.</p>
+<p>In case of invalid domains or credentials, there will be an error page instead of a success page.</p>
+<p>The <em>Servers</em> page lists the current servers. Clicking on a specific server will show its credentials, validated status, and other important information. Of note, updating the domain, username, or password will trigger a background, remote check to validate the newly updated information.</p>
+</section>
+<section id="synchronization">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-administration-synchronization"></span><h4>Synchronization<a class="headerlink" href="#synchronization" title="Link to this heading"></a></h4>
+<p>The module provides a trytond-cron job which by default synchronizes all validated servers every 15 minutes. This can be changed through the <em>Scheduled Actions</em> configuration under <em>Administration → Scheduler</em>.</p>
+<p>Servers can by manually synchronized by clicking the <em>Sync</em> button on their individual view.</p>
+</section>
+</section>
+<section id="troubleshooting">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-troubleshooting"></span><h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<section id="server-s-not-automatically-synchronizing">
+<span id="modulesindetail-imaging-imaging-orthanc-integration-troubleshooting-server-s-not-automatically-synchronizing"></span><h4>Server(s) not automatically synchronizing<a class="headerlink" href="#server-s-not-automatically-synchronizing" title="Link to this heading"></a></h4>
+<p>Make sure trytond-cron is running.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nursing.html" class="btn btn-neutral float-left" title="Nursing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inpatientmanagement.html" class="btn btn-neutral float-right" title="Inpatient Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

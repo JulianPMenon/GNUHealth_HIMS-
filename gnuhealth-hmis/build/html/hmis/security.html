@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Backups and High-Availability" href="backups.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GNU Health HMIS Node Technical Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/index.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="centralauthentication.html">Central Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlcenter.html">The GNU Health Control Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sysinfo.html">The SYSINFO Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patches.html">Patches and Patchsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups and High-Availability</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#securing-your-gnu-health-environment">Securing Your GNU Health Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-health-security-advisories">GNU Health Security Advisories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-control">Access Control</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#default-server-ports">Default server Ports</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-demo-users-in-production-environments">Disable demo users in Production environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#public-key-cryptography-in-gnu-health">Public-key Cryptography in GNU Health</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gnu-health-cryptographic-module">GNU Health Cryptographic Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-digital-signatures-in-gnu-health">Using Digital Signatures in GNU Health</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-a-security-vulnerability">Reporting a security vulnerability</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restserver.html">FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usingrestserver.html">Using the FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GNU Health HMIS Node Technical Guide</a></li>
+      <li class="breadcrumb-item active">Security</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/hmis/security.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="security">
+<span id="hmis-security-security"></span><h1>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h1>
+<section id="securing-your-gnu-health-environment">
+<span id="hmis-security-security-securing-your-gnu-health-environment"></span><h2>Securing Your GNU Health Environment<a class="headerlink" href="#securing-your-gnu-health-environment" title="Link to this heading"></a></h2>
+<p>Security is a multi disciplinary task, involving components from networking, operating system, database and application (Tryton), to human resources, to name a few.</p>
+<p>This page will try to give an overview of some basic concepts that will help you to enhance the access control to your system. We will also talk about enabling <a class="reference external" href="https://en.wikipedia.org/wiki/Public-key_cryptography">Public-key cryptography</a> to sign documents and records from different models.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By no means this introductory page will replace the advice of computer security specialists for your specific installation</p>
+</div>
+</section>
+<section id="gnu-health-security-advisories">
+<span id="hmis-security-security-gnu-health-security-advisories"></span><h2>GNU Health Security Advisories<a class="headerlink" href="#gnu-health-security-advisories" title="Link to this heading"></a></h2>
+<p>GNU Health releases Security Advisories (SA) anytime a vulnerability is found. The security advisory format is inspired on FreeBSD.</p>
+<p>The GNU Health security advisories are sent to all subscribers in the “health-security” mailing list. See the “Resources” chapter to subscribe.</p>
+<p>You can check the current security advisory list in <a class="reference external" href="https://ftp.gnu.org/gnu/health/security/security_advisories.html">https://ftp.gnu.org/gnu/health/security/security_advisories.html</a></p>
+</section>
+<section id="access-control">
+<span id="hmis-security-security-access-control"></span><h2>Access Control<a class="headerlink" href="#access-control" title="Link to this heading"></a></h2>
+<section id="default-server-ports">
+<span id="hmis-security-security-access-control-default-server-ports"></span><h3>Default server Ports<a class="headerlink" href="#default-server-ports" title="Link to this heading"></a></h3>
+<p>The Tryton server JSON-RPC listens by default in port 8000. It’s a advisable to change to another port in production environments.</p>
+<p>The server super user encrypted password has been updated, in the corresponding section of the trytond.conf file. Here is a sample of such file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="linenos">2</span><span class="n">uri</span> <span class="o">=</span> <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5432</span>
+<span class="linenos">3</span><span class="n">path</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span><span class="o">/</span><span class="n">attach</span>
+<span class="linenos">4</span><span class="p">[</span><span class="n">session</span><span class="p">]</span>
+<span class="linenos">5</span><span class="sd">&#39;&#39;&#39;super_pwd = JonB./CoLl8F6&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="disable-demo-users-in-production-environments">
+<span id="hmis-security-security-disable-demo-users-in-production-environments"></span><h2>Disable demo users in Production environments<a class="headerlink" href="#disable-demo-users-in-production-environments" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For security reasons, deactivate demo users in production environments</p>
+</div>
+<p>GNU Health comes with a set of pre-defined users for demo purposes. They all have the suffix <code class="code docutils literal notranslate"><span class="pre">demo_</span></code> ( <code class="code docutils literal notranslate"><span class="pre">demo_doctor</span></code>, <code class="code docutils literal notranslate"><span class="pre">demo_front_desk</span></code>, <code class="code docutils literal notranslate"><span class="pre">demo_nurse</span></code>… ).</p>
+<p>Please deactivate them in production environments.</p>
+<p>To deactivate the users, follow the following path :
+Administration → Users → Users</p>
+<p>In filters, you can choose :
+login name : <code class="code docutils literal notranslate"><span class="pre">demo_</span></code></p>
+<p>Unset the “active” flag of each of them. The demo users are now de-activated in your environment.</p>
+</section>
+<section id="public-key-cryptography-in-gnu-health">
+<span id="hmis-security-security-public-key-cryptography-in-gnu-health"></span><h2>Public-key Cryptography in GNU Health<a class="headerlink" href="#public-key-cryptography-in-gnu-health" title="Link to this heading"></a></h2>
+<section id="gnu-health-cryptographic-module">
+<span id="hmis-security-security-public-key-cryptography-in-gnu-health-gnu-health-cryptographic-module"></span><h3>GNU Health Cryptographic Module<a class="headerlink" href="#gnu-health-cryptographic-module" title="Link to this heading"></a></h3>
+<p>The module goal is to achieve the concepts of confidentiality, integrity and non-repudiation in GNU Health.</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">health_crypto</span></code> module currently provides the following functionality:</p>
+<ul class="simple">
+<li><p>Document Serialization</p></li>
+<li><p>Document hashing (MD)</p></li>
+<li><p>Document signing</p></li>
+<li><p>Document verification</p></li>
+</ul>
+<p>The module will work on records from models that will need this functionality such as prescription, patient evaluations, surgeries or lab tests.</p>
+<p>The Serialization includes the information in a predefined format (JSON) and encoding (UTF8).</p>
+<p>There will be a field that will contain the Message digest of the serialization process, and that will check for any changes. If the case of alteration of any fields</p>
+<p>The signing process will be upon that Message Digest field, whereas the encryption process will work on row or column level.</p>
+<p>Public-key / asymmetric cryptography will be used for signing the documents.</p>
+<p>The standard models that are included are Prescription, Birth Certificate and Death Certificate.  Of course, you can apply the functionality to any model that you feel like is necessary. In addition, and based on the community requests, we will incorporate new models in the next versions.</p>
+</section>
+<section id="using-digital-signatures-in-gnu-health">
+<span id="hmis-security-security-public-key-cryptography-in-gnu-health-using-digital-signatures-in-gnu-health"></span><h3>Using Digital Signatures in GNU Health<a class="headerlink" href="#using-digital-signatures-in-gnu-health" title="Link to this heading"></a></h3>
+<p>GNU Health works along with <a class="reference external" href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard">GNU Privacy Guard</a> for <strong>digitally signing and verifying documents</strong>. Please refer to the <a class="reference internal" href="../plugins/gnuhealthplugins.html#plugins-gnuhealthplugins-gnu-health-plugins"><span class="std std-ref">GNU Health Plugins</span></a> section for the installation</p>
+</section>
+</section>
+<section id="reporting-a-security-vulnerability">
+<span id="hmis-security-security-reporting-a-security-vulnerability"></span><h2>Reporting a security vulnerability<a class="headerlink" href="#reporting-a-security-vulnerability" title="Link to this heading"></a></h2>
+<p>We take security very seriously, and we appreciate your help on this !</p>
+<p>If you believe you have found a vulnerability in GNU Health, please send an email to <a class="reference external" href="mailto:security&#37;&#52;&#48;gnuhealth&#46;org">security<span>&#64;</span>gnuhealth<span>&#46;</span>org</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="backups.html" class="btn btn-neutral float-left" title="Backups and High-Availability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

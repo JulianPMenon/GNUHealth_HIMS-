@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Demo and test environments" href="../demo_test/index.html" />
+    <link rel="prev" title="Release Process" href="release.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GNU Health HMIS Node Technical Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation/index.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="administration/index.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="centralauthentication.html">Central Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlcenter.html">The GNU Health Control Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sysinfo.html">The SYSINFO Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patches.html">Patches and Patchsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html">Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backups.html">Backups and High-Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restserver.html">FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usingrestserver.html">Using the FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">Release Process</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contributors-wanted">Contributors Wanted!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translating-the-software">Translating the Software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-and-translating-the-documentation">Writing and Translating the Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-bugs">Reporting Bugs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coding">Coding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#obtaining-your-copy-of-the-code">Obtaining Your Copy of the Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#coding-style">Coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-and-creating-your-own-modules">Customizing and Creating Your Own Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submitting-patches">Submitting Patches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GNU Health HMIS Node Technical Guide</a></li>
+      <li class="breadcrumb-item active">Contributing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/hmis/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing">
+<span id="hmis-contributing-contributing"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h1>
+<section id="contributors-wanted">
+<span id="hmis-contributing-contributing-contributors-wanted"></span><h2>Contributors Wanted!<a class="headerlink" href="#contributors-wanted" title="Link to this heading"></a></h2>
+<p>GNU Health is a <abbr title="Free/Libre/Open-Source Software">FLOSS</abbr> project, you are very welcome to contribute to it. There are several ways to do so, most of which not requiring you to know how to code!</p>
+</section>
+<section id="translating-the-software">
+<span id="hmis-contributing-contributing-translating-the-software"></span><h2>Translating the Software<a class="headerlink" href="#translating-the-software" title="Link to this heading"></a></h2>
+<p>Providing GNU Health in a user’s native language is a big part of the success. You can help by improving existing translations, or creating a new translation in your own language. Translating GNU Health is easy, it does not require technical knowledge, and is all done via a web interface. Have a look at the <a class="reference internal" href="administration/localization.html#hmis-administration-localization-localization"><span class="std std-ref">Localization</span></a> page for more details on the process.</p>
+</section>
+<section id="writing-and-translating-the-documentation">
+<span id="hmis-contributing-contributing-writing-and-translating-the-documentation"></span><h2>Writing and Translating the Documentation<a class="headerlink" href="#writing-and-translating-the-documentation" title="Link to this heading"></a></h2>
+<p>The GNU Health documentation on Wikibooks (which you are reading right now) is not complete, and it needs adjustments or additions with every GNU Health upgrade.</p>
+<p>And if you don’t want to write documentation, you can still contribute by translating it into your language to make it easier for health professionals to work with GNU Health.</p>
+</section>
+<section id="reporting-bugs">
+<span id="hmis-contributing-contributing-reporting-bugs"></span><h2>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Link to this heading"></a></h2>
+<p>Unfortunately almost any software contains bugs. While we are actively working on fixing them so you don’t have to struggle, please do report any bug or anomaly that you encounter.</p>
+<p>Reporting a bug does not take much time. It is done via <a class="reference external" href="https://savannah.gnu.org/bugs/?group=health">Savannah</a>.</p>
+<p>Tip: For faster resolution, please include a description of the steps you performed to get to the bug, and if possible include screenshots of the issue. But be careful: ‘’’Don’t include patient information in the screenshots or your description!’’’</p>
+</section>
+<section id="coding">
+<span id="hmis-contributing-contributing-coding"></span><h2>Coding<a class="headerlink" href="#coding" title="Link to this heading"></a></h2>
+<p>GNU Health is mostly a set of <a class="reference external" href="http://www.tryton.org/">Tryton</a> modules, the programming language used is <a class="reference external" href="http://python.org/">Python</a>. The code is hosted on <a class="reference external" href="https://savannah.gnu.org/hg/?group=health">Savannah</a> and versioned under <a class="reference external" href="http://mercurial.selenic.com/">Mercurial</a>.</p>
+<section id="obtaining-your-copy-of-the-code">
+<span id="hmis-contributing-contributing-coding-obtaining-your-copy-of-the-code"></span><h3>Obtaining Your Copy of the Code<a class="headerlink" href="#obtaining-your-copy-of-the-code" title="Link to this heading"></a></h3>
+<p>You can get your copy of the latest code by doing an anonymous checkout:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>hg<span class="w"> </span>clone<span class="w"> </span>http://hg.savannah.gnu.org/hgweb/health/
+</pre></div>
+</div>
+<p>You can also <a class="reference external" href="http://hg.savannah.gnu.org/hgweb/health/">browse the code online</a>.</p>
+</section>
+<section id="coding-style">
+<span id="hmis-contributing-contributing-coding-coding-style"></span><h3>Coding style<a class="headerlink" href="#coding-style" title="Link to this heading"></a></h3>
+<p>The coding style should follow the Tryton <a class="reference external" href="https://code.google.com/p/tryton/wiki/CodingGuidelines">guidelines</a> or else Python best <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">practices</a>.</p>
+</section>
+<section id="customizing-and-creating-your-own-modules">
+<span id="hmis-contributing-contributing-coding-customizing-and-creating-your-own-modules"></span><h3>Customizing and Creating Your Own Modules<a class="headerlink" href="#customizing-and-creating-your-own-modules" title="Link to this heading"></a></h3>
+<p>Chances are that if you are installing GNU Health for your center, you will be customizing it to meet your specific needs. Reports, access control rules and views are just some of the objects that are normally customized. The main concept is to <strong>not edit the standard code or modules</strong>, since it will be overwritten in the next update and most probably will end up in a broken system.</p>
+<p>The recommended steps to customize GNU Health to your center are:</p>
+<ol class="arabic simple">
+<li><p><strong>Create your module</strong>: It’s recommended that you use the following naming convention for your local modules: <code class="code docutils literal notranslate"><span class="pre">z_health_&lt;modulename&gt;</span></code>. For example, if your project is called <em>catalina</em>, your local module name would be <code class="code docutils literal notranslate"><span class="pre">z_health_catalina</span></code>. This way makes is easy to detect and differentiate your modules from the base code. You can also easily make backup of them following the pattern.</p></li>
+<li><p><strong>Inherit the objects.</strong></p></li>
+<li><p><strong>Modify or create new models.</strong></p></li>
+</ol>
+<p>If you create a new custom field, you should also use the <code class="code docutils literal notranslate"><span class="pre">z_&lt;fieldname&gt;</span></code> naming convention. This avoids collision with future field names of the official releases. We will not use any module, class, or model name starting with <code class="code docutils literal notranslate"><span class="pre">z_</span></code>.</p>
+<section id="the-local-modules-directory">
+<span id="hmis-contributing-contributing-coding-customizing-and-creating-your-own-modules-the-local-modules-directory"></span><h4>The “local” modules directory<a class="headerlink" href="#the-local-modules-directory" title="Link to this heading"></a></h4>
+<p>There is a directory called <strong>local</strong> under <code class="code docutils literal notranslate"><span class="pre">~/gnuhealth/tryton/server/modules</span></code>. Please put your local modules that contain the customizations for your project under this directory. When using this approach, it makes sure that the update procedure does not overwrite your packages.</p>
+<p>Also, sometimes you might want to include another existing package from Tryton or the community. This local modules directory is the place to place them.</p>
+<p>Please note that can only support those packages that are included on each GNU Health HMIS distribution.</p>
+</section>
+</section>
+<section id="submitting-patches">
+<span id="hmis-contributing-contributing-coding-submitting-patches"></span><h3>Submitting Patches<a class="headerlink" href="#submitting-patches" title="Link to this heading"></a></h3>
+<p>Regular contributors have write access to the code repository. However, if you’re just starting out, we want to make sure that your changes get reviewed. The way to do this is to <a class="reference external" href="https://savannah.gnu.org/bugs/?group=health">open a bug</a> describing the issue you’ve fixed or the feature you’ve added, and to attach a patch to that bug report. One of the developers will review your patch and commit it to the main development branch if approved.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="release.html" class="btn btn-neutral float-left" title="Release Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../demo_test/index.html" class="btn btn-neutral float-right" title="Demo and test environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

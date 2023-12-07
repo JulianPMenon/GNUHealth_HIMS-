@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Demo database &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Live-CD" href="livecd.html" />
+    <link rel="prev" title="Different ways to test GNU Health" href="testgnuhealth.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demo and test environments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="testgnuhealth.html">Different ways to test GNU Health</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Demo database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-to-the-demo-database">Introduction to the Demo Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-zenon-betz-family">The Zenon-Betz Family</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#demographics-information">Demographics Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patient-information">Patient Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-information">Other Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#online-community-servers">Online Community Servers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gnu-health-federation-community-hub">GNU Health Federation Community Hub</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#development-server">Development server</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#local-demo-database">Local Demo Database</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="livecd.html">The Live-CD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livecd.html#virtual-machine-images">Virtual Machine Images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Demo and test environments</a></li>
+      <li class="breadcrumb-item active">The Demo database</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demo_test/demodb.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-demo-database">
+<span id="demo-test-demodb-the-demo-database"></span><h1>The Demo database<a class="headerlink" href="#the-demo-database" title="Link to this heading"></a></h1>
+<section id="introduction-to-the-demo-database">
+<span id="demo-test-demodb-the-demo-database-introduction-to-the-demo-database"></span><h2>Introduction to the Demo Database<a class="headerlink" href="#introduction-to-the-demo-database" title="Link to this heading"></a></h2>
+<p>GNU Health default installation comes with no data. It’s interesting, for academic and training purposes to have some demo data that exemplifies concepts and improves the learning curve.</p>
+<p>The demo database is an ongoing project and it will be adapting to the each new GNU Health version. The clinical history will also grow with time.</p>
+<p>For consistency sake, it’s important to have the main characters information constant (family members name, birth dates and place, health centers, family doctors etc.). The information and characters are fictitious and we should try to make it valid for different cultures.</p>
+</section>
+<section id="the-zenon-betz-family">
+<span id="demo-test-demodb-the-demo-database-the-zenon-betz-family"></span><h2>The Zenon-Betz Family<a class="headerlink" href="#the-zenon-betz-family" title="Link to this heading"></a></h2>
+<p>The story goes around the Betz family, and the main character, Ana Betz, a primary school teacher.</p>
+<ul>
+<li><p>Health Center: GNU Solidario Hospital in Las Palmas, Spain</p></li>
+<li><p>Family Doctor: Cameron Cordara</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ID: 765870</p></li>
+<li><p>Speciality: Family Medicine</p></li>
+<li><p>Institution: GNU Solidario Hospital</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Family: Zenon-Betz family</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>John Zenon (SSN: 40556644)</p></li>
+<li><p><strong>Ana Betz (Fed ID: ESPGNU777ORG)</strong> born October 4th, 1985, the main character</p></li>
+<li><p>Matt (SSN: 97234436), born March 15th 2010, their son</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="demographics-information">
+<span id="demo-test-demodb-the-demo-database-the-zenon-betz-family-demographics-information"></span><h3>Demographics Information<a class="headerlink" href="#demographics-information" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Sex: Female</p></li>
+<li><p>Marital Status: Married</p></li>
+<li><p>Profession: School teacher</p></li>
+<li><p>Education Level: University</p></li>
+<li><p>Domiciliary Unit</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Housing Conditions: Comfortable and good sanitary conditions</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="patient-information">
+<span id="demo-test-demodb-the-demo-database-the-zenon-betz-family-patient-information"></span><h3>Patient Information<a class="headerlink" href="#patient-information" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Socio-Economic Status: Middle class</p></li>
+<li><p>Allergies: β-lactam hypersensitivity</p></li>
+<li><p>Diseases: Type 1 Diabetes diagnosed on November 10th 1993</p></li>
+<li><p>Medication: Insulin since November 10th 1993</p></li>
+<li><p>Genetic Information</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Family history</p></li>
+<li><p>Maternal Grandfather: Marfan’s Syndrome (Q87.4)</p></li>
+<li><p>Father: Essential (primary) hypertension (I10)</p></li>
+<li><p>Disease Genes</p></li>
+<li><p>BRCA1: breast cancer 1, early onset</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Obstetric Information: G1P1A0</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Newborn: Matt, epidural, vaginal birth</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Lifestyle</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Ex-smoker</p></li>
+<li><p>Addictions: No recreational drugs</p></li>
+<li><p>Sexuality: Heterosexual, monogamous, practices safe sex</p></li>
+<li><p>Safety: Motorcycle rider, uses helmet</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="other-information">
+<span id="demo-test-demodb-the-demo-database-the-zenon-betz-family-other-information"></span><h3>Other Information<a class="headerlink" href="#other-information" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Family information (Family functionality level, members, operational sectors…)</p></li>
+<li><p>Medical Imaging (X-rays, CTs, MRIs…)</p></li>
+<li><p>Genetic info / risks</p></li>
+<li><p>Lab orders and results</p></li>
+<li><p>Clinical history of the family</p></li>
+</ul>
+</section>
+</section>
+<section id="online-community-servers">
+<span id="demo-test-demodb-the-demo-database-online-community-servers"></span><h2>Online Community Servers<a class="headerlink" href="#online-community-servers" title="Link to this heading"></a></h2>
+<p>We have two main community servers available in the Internet so you can connect and try the latest GNU Health. This is probably the simplest way to check out GNU Health for the first time.</p>
+<ol class="arabic simple">
+<li><p><strong>federation.gnuhealth.org</strong>: The GNU Health Federation community hub. Contains the latest stable version</p></li>
+<li><p><strong>health.gnusolidario.org</strong> : This server holds the <strong>previous</strong> stable version of GNU Health HMIS and LIMS servers (3.2)</p></li>
+</ol>
+<section id="gnu-health-federation-community-hub">
+<span id="demo-test-demodb-the-demo-database-online-community-servers-gnu-health-federation-community-hub"></span><h3>GNU Health Federation Community Hub<a class="headerlink" href="#gnu-health-federation-community-hub" title="Link to this heading"></a></h3>
+<p><strong>federation.gnuhealth.org</strong>: The GNU Health Federation community hub. Contains the latest stable version of the following components :</p>
+<ul class="simple">
+<li><p>Thalamus message server</p></li>
+<li><p>Health Information System and Person Master Index</p></li>
+<li><p>GNU Health HMIS and LIMS nodes</p></li>
+<li><p>GNU Health WebDAV server and calendaring system</p></li>
+</ul>
+<p>The community Hospital Management demo server runs behind a web server (NGINX) and a WSGI server (UWSGI).</p>
+<section id="connection-to-the-gnu-health-hmis-and-lims">
+<span id="demo-test-demodb-the-demo-database-online-community-servers-gnu-health-federation-community-hub-connection-to-the-gnu-health-hmis-and-lims"></span><h4>Connection to the GNU Health HMIS and LIMS<a class="headerlink" href="#connection-to-the-gnu-health-hmis-and-lims" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Install the GNU Health client (GNU/Linux, FreeBSD or other <em>NIX</em>) Proceed as explained in the <a class="reference internal" href="../hmis/installation/vanilla.html#hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client"><span class="std std-ref">GNU Health Client Installation section</span></a></p></li>
+<li><p>Use the following server and credentials . Please note that the Database name can change. You can use the “profile” to select the DB from the list</p></li>
+</ol>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<ul class="simple">
+<li><p><strong>Server</strong>: federation.gnuhealth.org&lt;/br&gt;</p></li>
+<li><p><strong>Database</strong>: health42rc2&lt;/br&gt;</p></li>
+<li><p><strong>User name</strong>: admin&lt;/br&gt;</p></li>
+<li><p><strong>Password</strong>: gnusolidario</p></li>
+</ul>
+<p>The community server uses the standard port 8000</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The community server database resets itself everyday at 00:30 UTC , so we have clean demo data. That means that you can also play and experiment with it without fear of “breaking” the DB : .</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please <strong>do not</strong> change the language of the admin account! Instead, copy the admin account to a new account, e.g. admin_fr, and set this accounts language to the desired language!</p>
+</div>
+</section>
+<section id="connection-to-the-health-information-system-via-browser">
+<span id="demo-test-demodb-the-demo-database-online-community-servers-gnu-health-federation-community-hub-connection-to-the-health-information-system-via-browser"></span><h4>Connection to the Health Information System via Browser<a class="headerlink" href="#connection-to-the-health-information-system-via-browser" title="Link to this heading"></a></h4>
+<p>You can connect to the community hub using the web interface.
+Please note that this is alpha and not intended for production systems yet.</p>
+<p><a class="reference external" href="https://federation.gnuhealth.org:8900">https://federation.gnuhealth.org:8900</a></p>
+</section>
+</section>
+<section id="development-server">
+<span id="demo-test-demodb-the-demo-database-online-community-servers-development-server"></span><h3>Development server<a class="headerlink" href="#development-server" title="Link to this heading"></a></h3>
+<p><strong>For developers</strong> : There is a developer database that runs on the latest development version. To connect to the developer community server, use port 9555, with the same credentials. Needless to say, the developer version is highly unstable, and is just for developers.</p>
+<p>The Webdav server is at port 9080</p>
+</section>
+</section>
+<section id="local-demo-database">
+<span id="demo-test-demodb-the-demo-database-local-demo-database"></span><h2>Local Demo Database<a class="headerlink" href="#local-demo-database" title="Link to this heading"></a></h2>
+<p>This method should give the most up-to-date demo database.</p>
+<p>As the gnuhealth user, use the GHealth demo DB installer script. You can download the latest version from GNUHealth at Savannah mercurial repository</p>
+<p>( <a class="reference external" href="https://hg.savannah.gnu.org/hgweb/health/file/tip/tryton/scripts/demodb">https://hg.savannah.gnu.org/hgweb/health/file/tip/tryton/scripts/demodb</a> )</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./install_demo_database.sh<span class="w"> </span><span class="m">40</span>
+</pre></div>
+</div>
+<p>This will download the demo database of version 4.0.x . It will also create the database locally.</p>
+<p>Now enter the database through the GNU Health client. For example, for 4.0.x releases:</p>
+<ul class="simple">
+<li><p><strong>Database:</strong> ghdemo40</p></li>
+<li><p><strong>Username:</strong> admin</p></li>
+<li><p><strong>Password:</strong> gnusolidario</p></li>
+</ul>
+<p>There is a user “admin_es” that uses the Spanish language.</p>
+<p>You can browse the current demo databases, from our GH site download area:</p>
+<p><a class="reference external" href="https://www.gnuhealth.org/downloads/postgres_dumps/">https://www.gnuhealth.org/downloads/postgres_dumps/</a></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Remember that <strong>databases with odd minor numbers (eg, 41) are unstable</strong>. They are the development version of the upcoming release, and for dev / testing purposes.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="testgnuhealth.html" class="btn btn-neutral float-left" title="Different ways to test GNU Health" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="livecd.html" class="btn btn-neutral float-right" title="The Live-CD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

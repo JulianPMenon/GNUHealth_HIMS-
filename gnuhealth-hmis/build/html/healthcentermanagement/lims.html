@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratory Management &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Financial Accounting" href="financialaccounting.html" />
+    <link rel="prev" title="Health Center Management" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Health Center Management</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Laboratory Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gnu-health-lims-laboratory-information-management-system-for-the-healthcare-and-biomedical-sectors">GNU HEALTH LIMS: Laboratory Information Management System for the Healthcare and Biomedical sectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laboratory-order-request">Laboratory Order request</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#test-types">Test Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-laboratory-test-requests">Managing Laboratory Test requests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#updating-health-services">Updating Health Services</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-lab-test">Creating the lab test</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#laboratory-reports">Laboratory Reports</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#displaying-printing-or-e-mailing-the-lab-test-results-and-labels">Displaying, printing or e-mailing the lab test results and labels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lab-test-units">Lab Test Units</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lab-test-types">Lab Test Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interfaces-with-laboratories-and-lims">Interfaces with Laboratories and LIMS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-workflow">Basic workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sample-interface">Sample interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="financialaccounting.html">Financial Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyticaccounting.html">Analytic Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="products.html">Products and Services Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="purchaseadministration.html">Purchase Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockmanagement.html">Stock Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accessmanagement.html">Access Management</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Health Center Management</a></li>
+      <li class="breadcrumb-item active">Laboratory Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/healthcentermanagement/lims.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="laboratory-management">
+<span id="healthcentermanagement-lims-laboratory-management"></span><h1>Laboratory Management<a class="headerlink" href="#laboratory-management" title="Link to this heading"></a></h1>
+<section id="gnu-health-lims-laboratory-information-management-system-for-the-healthcare-and-biomedical-sectors">
+<span id="healthcentermanagement-lims-laboratory-management-gnu-health-lims-laboratory-information-management-system-for-the-healthcare-and-biomedical-sectors"></span><h2>GNU HEALTH LIMS: Laboratory Information Management System for the Healthcare and Biomedical sectors<a class="headerlink" href="#gnu-health-lims-laboratory-information-management-system-for-the-healthcare-and-biomedical-sectors" title="Link to this heading"></a></h2>
+<p>GNU LIMS, also known as Occhiolino, is a modern Laboratory Information Management System for the healthcare and biomedical sectors, that has emerged as a GNU Health sub-project.</p>
+<p>The <strong>Laboratory Modules</strong> manage the request, creation and evaluation of laboratory analyses. As far as the <strong>LIMS</strong> (Laboratory Information Management System) functionality, GNU Health is very flexible. You will be able to link it to the patient chart and to the financial management of the Health Center.</p>
+<p>It is able to link to financial management, and create services and invoices / billing from the laboratory requests. Occhiolino has been integrated to GNU Health since the very beginning.</p>
+</section>
+<section id="laboratory-order-request">
+<span id="healthcentermanagement-lims-laboratory-management-laboratory-order-request"></span><h2>Laboratory Order request<a class="headerlink" href="#laboratory-order-request" title="Link to this heading"></a></h2>
+<p>To create a new <em>Lab Test Request</em> record there are two possibilities:</p>
+<ol class="arabic simple">
+<li><p>Click on the <em>Relate</em> button in the patient form and choose the <em>Request Lab Test</em> command.</p></li>
+<li><p>Click on the <em>Request Lab Test</em> command in the main navigation.</p></li>
+</ol>
+<p>In either case a dialog will open that allows you to enter the following information:</p>
+<ul class="simple">
+<li><p><em>Date:</em> The date and time of the request (default values are the current date and time)</p></li>
+<li><p><em>Urgent:</em> A checkbox to indicate an urgent request</p></li>
+<li><p><em>Patient:</em> The name of the patient (link to a patient record)</p></li>
+<li><p><em>Context:</em> It can be a suspected or existing health condition, a regular checkup, … (optional)</p></li>
+<li><p><em>Health Prof:</em> The name of the health professional requesting the laboratory test</p></li>
+<li><p><em>Tests:</em> The list of test requested</p></li>
+</ul>
+<section id="test-types">
+<span id="healthcentermanagement-lims-laboratory-management-laboratory-order-request-test-types"></span><h3>Test Types<a class="headerlink" href="#test-types" title="Link to this heading"></a></h3>
+<p>The laboratory module allows you to chose from a list of different lab tests and to create the specific one that you need, with their analytes, normal ranges, etc..</p>
+</section>
+</section>
+<section id="managing-laboratory-test-requests">
+<span id="healthcentermanagement-lims-laboratory-management-managing-laboratory-test-requests"></span><h2>Managing Laboratory Test requests<a class="headerlink" href="#managing-laboratory-test-requests" title="Link to this heading"></a></h2>
+<p>To check for new laboratory test request and to create test reports, the members of the laboratory staff will open the section in the main navigation.</p>
+<p><em>Health → Laboratory → Lab Test Requests</em></p>
+<p>This brings up the list of <em>Lab Test Requests</em>, showing all information described above.</p>
+<section id="updating-health-services">
+<span id="healthcentermanagement-lims-laboratory-management-managing-laboratory-test-requests-updating-health-services"></span><h3>Updating Health Services<a class="headerlink" href="#updating-health-services" title="Link to this heading"></a></h3>
+<p>Lab orders contain one or many different lab tests. If the health professional associated the order to a particular health service document, this will be included on each test. Once the test is ready to be processed, the lab test can be included in the service document by clicking on the <strong>“Update Services”</strong>. At this point, you could also assign the test to another service document than the default one.</p>
+</section>
+<section id="creating-the-lab-test">
+<span id="healthcentermanagement-lims-laboratory-management-managing-laboratory-test-requests-creating-the-lab-test"></span><h3>Creating the lab test<a class="headerlink" href="#creating-the-lab-test" title="Link to this heading"></a></h3>
+<p>In addition there is a <em>State</em> column indicating whether a request is a <em>Draft</em> or <em>Ordered</em>. As soon as a laboratory staff member creates a laboratory test by clicking the <em>Action</em> button and selecting the <em>Lab: Create Test</em> command, the state of the request will change from <em>Draft</em> to <em>Ordered</em>. In addition the font color of the request will change from blue to black, making it easier to distinguish between pending requests and requests being processed.</p>
+<p>It is at this point where all the analytes associated to the lab test type are created and ready to be processed by the analyzer.</p>
+<p>In the screenshot, a single order contains three lab test requests.</p>
+</section>
+</section>
+<section id="laboratory-reports">
+<span id="healthcentermanagement-lims-laboratory-management-laboratory-reports"></span><h2>Laboratory Reports<a class="headerlink" href="#laboratory-reports" title="Link to this heading"></a></h2>
+<p>GH Command: <strong>Lab</strong></p>
+<p>A laboratory test record allows for the storage of the values of all test criteria contained in a specific test plus some extra information.</p>
+<p>To access test results there are two possibilities:</p>
+<ol class="arabic simple">
+<li><p>Click on the <em>Relate</em> button in the patient form and choose the <em>Lab: Reports</em> command.</p></li>
+<li><p>Click on the <em>Health → Laboratory → Lab Test Results</em> command in the main navigation.</p></li>
+</ol>
+<p>The <em>Lab Tests Results</em> form is structured as follows:</p>
+<p><strong>Main Info</strong></p>
+<p>The <em>Main Info</em> tab provides  information about the patient and about the test as a whole. The majority of this information comes from the laboratory test request.
+Relevant information on this form is the order and its date, the requesting health professional, the technician who made the test and the lab manager who validated it, and the date when it was validated.</p>
+<p>In the lower half of the <em>Main Info</em> tab there is the <em>Lab Test Criteria</em> table. This table allows to enter the following information for each criterion of the test:</p>
+<ul class="simple">
+<li><p><em>Warn</em> : It will automatically be set if the value is out of range. The physician can also set it regardless of the value.</p></li>
+<li><p><em>Excluded</em> : Check this field to ignore this analyte from the test</p></li>
+<li><p><em>Analyte</em> : The actual parameter to be checked</p></li>
+<li><p><em>Value</em>: The result obtained on that analyte.</p></li>
+<li><p><em>Result - Text</em>: For non-quantitative results. For instance, the urine aspect.</p></li>
+<li><p><em>Lower Limit</em>, <em>Upper Limit</em> and <em>Units</em>: Default range for the normal values on the specific analyte.</p></li>
+<li><p><em>Remarks</em>: Any particular note related on the result.</p></li>
+</ul>
+<p><strong>Extra Info and Validation</strong></p>
+<p>The <em>Extra Info</em> tab offers room for a summary of the results and a diagnosis.
+The <em>Validation</em> tab provides a cryptographic digest hash and the status of the record. The lab test can be also <strong>digitally signed</strong>. This functionalities are provided in the <strong>GNU Health crypto packages</strong>.</p>
+<p>The print layout of a laboratory test is called a laboratory report. You can preview and print laboratory reports from the <em>Lab Test Results</em> form by clicking the <em>Report</em> button and choosing the <em>Lab Report</em> action. Any anomalous value (i.e. a value below the lower limit or above the upper limit of a test criterion) is printed in red.</p>
+<p>You can directly access the lab reports using the “Lab” command line.</p>
+<p>Double clicking on the lab test, you will enter the form view, with detailed information about the test.</p>
+<section id="displaying-printing-or-e-mailing-the-lab-test-results-and-labels">
+<span id="healthcentermanagement-lims-laboratory-management-laboratory-reports-displaying-printing-or-e-mailing-the-lab-test-results-and-labels"></span><h3>Displaying, printing or e-mailing the lab test results and labels<a class="headerlink" href="#displaying-printing-or-e-mailing-the-lab-test-results-and-labels" title="Link to this heading"></a></h3>
+<p>Once the lab test has been generated, the technician can print the lab test label (eg, <strong>code-39</strong> barcodes) to be processed by the analyzer.</p>
+<p>By default, the report format in GNU Health is PDF, but it can be configured to other formats (like LibreOffice ODT)</p>
+<p>In addition, the GNU Health 4.0 client has the option of emailing the reports.</p>
+</section>
+</section>
+<section id="configuration">
+<span id="healthcentermanagement-lims-laboratory-management-configuration"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>To configure the available laboratory tests, go to the <em>Health → Configuration → Laboratory</em> section in the main menu. There you have two options: You can create, edit, or delete test types (including their test criteria), and you can configure the units used in the tests.</p>
+<section id="lab-test-units">
+<span id="healthcentermanagement-lims-laboratory-management-configuration-lab-test-units"></span><h3>Lab Test Units<a class="headerlink" href="#lab-test-units" title="Link to this heading"></a></h3>
+<p>By double clicking on <em>Health → Configuration → Laboratory → Lab Test Units</em> you will get the list of all units defined in the system. Configuring a unit is quite simple, since there are only two fields:</p>
+<ul class="simple">
+<li><p><em>Unit</em></p></li>
+<li><p><em>Code</em> (in most cases identical to <em>Unit</em>)</p></li>
+</ul>
+</section>
+<section id="lab-test-types">
+<span id="healthcentermanagement-lims-laboratory-management-configuration-lab-test-types"></span><h3>Lab Test Types<a class="headerlink" href="#lab-test-types" title="Link to this heading"></a></h3>
+<p>By double clicking on <em>Health → Configuration → Laboratory → Lab Test Types</em> you will get the list of all test types defined in the system. A test type serves as a template for an individual test. It contains a list of test criteria, including information about standard values for each test criterion. It is also linked to a product which allows to properly charge the test’s cost to the patient.</p>
+<section id="main-info-tab">
+<span id="healthcentermanagement-lims-laboratory-management-configuration-lab-test-types-main-info-tab"></span><h4><em>Main Info</em> Tab<a class="headerlink" href="#main-info-tab" title="Link to this heading"></a></h4>
+<p>In the <em>Main Info</em> tab of the test types form you can manage the following information:</p>
+<ul class="simple">
+<li><p><em>Test:</em> The full name of the test (typically in capital letters)</p></li>
+<li><p><em>Code</em> Unique code for the test</p></li>
+<li><p><em>Active</em> If this flag is set, the lab test will be shown.</p></li>
+<li><p><em>Service</em> Product / Service associated to the lab test.</p></li>
+</ul>
+<p>Below there is the list of <em>Test Cases</em> (or test criteria, as they are called elsewhere) of a test type. Each test case consists of the following information:</p>
+<ul class="simple">
+<li><p><em>Sequence:</em> A number to create an order within the test cases of a test type</p></li>
+<li><p><em>Analyte:</em> The substance or aspect to be analysed</p></li>
+<li><p><em>Lower Limit:</em> The lower limit of the range where a value is considered to be normal or not critical (used for information purposes, but also used to print a test case in red if a value is outside the range)</p></li>
+<li><p><em>Upper Limit:</em> The upper limit of the range where a value is considered to be normal or not critical (used for information purposes, but also used to print a test case in red if a value is outside the range)</p></li>
+<li><p><em>Reference:</em> A text field to add more information about the expected values of a test case</p></li>
+<li><p><em>Units:</em> The unit of the values in a test cases (used for <em>Upper Limit</em>, <em>Lower Limit</em>, and the test value itself)</p></li>
+</ul>
+<p>Using the <em>Service</em> field at the bottom of the <em>Main Info</em> tab each test type is linked to a product. The product defines the price of a test to be charged to the patient. So for each test type record you will need a product record; this product record is typically named after the test type.</p>
+</section>
+<section id="extra-info-tab">
+<span id="healthcentermanagement-lims-laboratory-management-configuration-lab-test-types-extra-info-tab"></span><h4><em>Extra Info</em> Tab<a class="headerlink" href="#extra-info-tab" title="Link to this heading"></a></h4>
+<p>The <em>Extra Info</em> tab contains a text field <em>Description</em> for additional information about a test type.</p>
+</section>
+</section>
+</section>
+<section id="interfaces-with-laboratories-and-lims">
+<span id="healthcentermanagement-lims-laboratory-management-interfaces-with-laboratories-and-lims"></span><h2>Interfaces with Laboratories and LIMS<a class="headerlink" href="#interfaces-with-laboratories-and-lims" title="Link to this heading"></a></h2>
+<p>GNU Health allows entry of the results of the analytes manually for any type of test. However, in many cases, it’s not feasible to enter this information manually, since it will be a lot of work and prone to human error.</p>
+<p>Generally, the health professional creates a lab test order, and this is sent to a laboratory. When the laboratory processes the order, the results are sent back in either paper or digital form. Moreover, in larger institutions, the center connects with their own laboratories and lab systems. The interface can automatically retrieve the results from the lab and upload them to GNU Health.</p>
+<p>In order to automate the task for processing the data, both the health institution and the laboratory need to agree in the way the data format and transferred. There are different formats and message exchange methods (csv, xml, web services, HL7, … ), and they can fit different scenarios.</p>
+<section id="basic-workflow">
+<span id="healthcentermanagement-lims-laboratory-management-interfaces-with-laboratories-and-lims-basic-workflow"></span><h3>Basic workflow<a class="headerlink" href="#basic-workflow" title="Link to this heading"></a></h3>
+<p>In most cases, we would need to set up a basic workflow. Let’s think about a basic hemogram / Complete Blood Count (CBC)</p>
+<ol class="arabic simple">
+<li><p>The health professional creates a test order, that contains one (or more) lab test type, with its unique ID. This lab test ID includes key information such as the lab test type, patient, ordering physician, date of request, …</p></li>
+<li><p>The information on that test ID is then sent to the lab</p></li>
+<li><p>The lab prints the test ID labels and place them on the test tube</p></li>
+<li><p>The nurse extracts the blood sample from the patient and places in the tube labeled with the unique lab test ID</p></li>
+<li><p>The sample is then taken to the analyzer, this reads the bar code of the lab test and processes the CBC</p></li>
+<li><p>The lab technician generates the report with the result for each analyte associated to the lab test request ID</p></li>
+<li><p>This result is sent to GNU Health in the way agreed by both parties (laboratory and institution)</p></li>
+<li><p>GNU Health LIMS interface will process and upload the result to the lab test.</p></li>
+</ol>
+<p>Of course, there can be higher or lower degree of automation, but most of this steps will exist in many scenarios.</p>
+</section>
+<section id="sample-interface">
+<span id="healthcentermanagement-lims-laboratory-management-interfaces-with-laboratories-and-lims-sample-interface"></span><h3>Sample interface<a class="headerlink" href="#sample-interface" title="Link to this heading"></a></h3>
+<p>As part of the GNU Health documentation, there is now a sample script that will take a csv encoded batch file and upload the results to GNU Health.</p>
+<p>This program reads a CSV formatted file that contains the lab test id, the analytes and its results.</p>
+<p>Included in the directory, there is a sample TEST006.csv, that contains the results of the test “TEST006”, a “Complete Blood Count - CBC”</p>
+<p>You can customize the program (GNU Health server name, credentials, …), as well as the lab test result file. Of course, the name of the lab test result can be change to meet your needs.</p>
+<p>You can find the latest version of the sample program in the GNU Health mercurial server, on the development branch :</p>
+<p><a class="reference external" href="http://hg.savannah.gnu.org/hgweb/health/file/tip/tryton/doc/samples/interfaces/lab">http://hg.savannah.gnu.org/hgweb/health/file/tip/tryton/doc/samples/interfaces/lab</a></p>
+<section id="requirements">
+<span id="healthcentermanagement-lims-laboratory-management-interfaces-with-laboratories-and-lims-sample-interface-requirements"></span><h4>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h4>
+<p>This current components and versions are:</p>
+<ul class="simple">
+<li><p>GNU Health : 4.0</p></li>
+<li><p>Proteus Tryton library : 6.0</p></li>
+</ul>
+<p>Installing proteus:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>pip2<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;proteus&gt;=6.0,&lt;6.1&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<span id="healthcentermanagement-lims-laboratory-management-interfaces-with-laboratories-and-lims-sample-interface-usage"></span><h4>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h4>
+<p>Invoke the program and pass the csv formatted file as an argument
+e.g.:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>./gnuhealth_csv_lab_interface.py<span class="w"> </span>TEST006.csv
+</pre></div>
+</div>
+<p>The main program steps are :</p>
+<ul class="simple">
+<li><p>Test connection to the GNU Health server</p></li>
+<li><p>Check that the Lab test has been created on GNU Health (eg, TEST006)</p></li>
+<li><p>Check that the analytes from the csv files are on the system</p></li>
+<li><p>Upload the results.</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Health Center Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="financialaccounting.html" class="btn btn-neutral float-right" title="Financial Accounting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

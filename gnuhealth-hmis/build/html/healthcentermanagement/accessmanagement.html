@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Management &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GNU Health Federation" href="../gnuhealthfederation/index.html" />
+    <link rel="prev" title="Stock Management" href="stockmanagement.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Health Center Management</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lims.html">Laboratory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="financialaccounting.html">Financial Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyticaccounting.html">Analytic Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="products.html">Products and Services Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="purchaseadministration.html">Purchase Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockmanagement.html">Stock Management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Access Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access-management-overview">Access Management Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#groups">Groups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#members-tab"><em>Members</em> Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-permissions-tab"><em>Access Permissions</em> Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#users">Users</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user-tab"><em>User</em> Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#actions-tab"><em>Actions</em> Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#healthcentermanagement-accessmanagement-access-management-users-access-permissions-tab"><em>Access Permissions</em> Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preferences-tab"><em>Preferences</em> Tab</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Health Center Management</a></li>
+      <li class="breadcrumb-item active">Access Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/healthcentermanagement/accessmanagement.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="access-management">
+<span id="healthcentermanagement-accessmanagement-access-management"></span><h1>Access Management<a class="headerlink" href="#access-management" title="Link to this heading"></a></h1>
+<section id="access-management-overview">
+<span id="healthcentermanagement-accessmanagement-access-management-access-management-overview"></span><h2>Access Management Overview<a class="headerlink" href="#access-management-overview" title="Link to this heading"></a></h2>
+<p>Like in many other IT systems, access to data and functions in GNU Health is controlled through <strong>groups</strong> (also known as roles). A group is a set of access rights. By assigning a <strong>user</strong> (also known as account or login) to a group, this user gains all rights of this group.</p>
+</section>
+<section id="groups">
+<span id="healthcentermanagement-accessmanagement-access-management-groups"></span><h2>Groups<a class="headerlink" href="#groups" title="Link to this heading"></a></h2>
+<p>To create, edit, or delete groups, please go to the <em>Administration → Users → Groups</em> section. Create a new group or double click an existing group to open the <em>Groups</em> form. All data in this form is divided into two tabs:</p>
+<section id="members-tab">
+<span id="healthcentermanagement-accessmanagement-access-management-groups-members-tab"></span><h3><em>Members</em> Tab<a class="headerlink" href="#members-tab" title="Link to this heading"></a></h3>
+<p>The <em>Members</em> tab lists all users that have been assigned to this group. You can add users to the group here, or you can double click on a user to see this users details.</p>
+<p>It is a safe practice to define all access rights of a group first and add users to the group later.</p>
+</section>
+<section id="access-permissions-tab">
+<span id="healthcentermanagement-accessmanagement-access-management-groups-access-permissions-tab"></span><h3><em>Access Permissions</em> Tab<a class="headerlink" href="#access-permissions-tab" title="Link to this heading"></a></h3>
+<p>The <em>Access Permissions</em> tab defines the access rights of a group. There are four types of rights that can be granted to a group:</p>
+<ol class="arabic simple">
+<li><p>Access to a certain model: This allows to grant the right to read, write, create and/or delete records of a certain record type (or model as it is called in GNU Health).</p></li>
+<li><p>Access to a certain field: This allows to grant the right to read, write, create and/or delete data in certain field. While field access is not as commonly used as model access, this option allows you to fine tune your access permission and to protect sensitive data.</p></li>
+<li><p>Access to a certain menu item: This allows to show or hide sections in the main navigation. It is a good practice to hide sections where a group should not or cannot edit data to simplify the user interface.</p></li>
+<li><p>Access to a certain rule</p></li>
+</ol>
+</section>
+</section>
+<section id="users">
+<span id="healthcentermanagement-accessmanagement-access-management-users"></span><h2>Users<a class="headerlink" href="#users" title="Link to this heading"></a></h2>
+<p>To create, edit, or delete users, please go to the <em>Administration → Users → Users</em> section. Create a new user or double click an existing user to open the <em>Users</em> form.</p>
+<p>Every user needs a <em>Name</em> (which is a descriptive name, not the user name for logging into the system) and a <em>Status</em> (which is active or not active and defines if a user can log into the system at all).</p>
+<p>All other data in this form is divided into four tabs:</p>
+<section id="user-tab">
+<span id="healthcentermanagement-accessmanagement-access-management-users-user-tab"></span><h3><em>User</em> Tab<a class="headerlink" href="#user-tab" title="Link to this heading"></a></h3>
+<p>The <em>User</em> tab contains the very basic information about a user:</p>
+<ul class="simple">
+<li><p><strong>Login:</strong> This is the user name for logging into the system and cannot be empty. It must be unique, that is to say that you can not have to users with identical logins.</p></li>
+<li><p><strong>Password:</strong> This is the password for logging into the system. When entering a password you can check the checkbox on the right hand side of the <em>Password</em> field to see what you are entering.</p></li>
+<li><p><strong>Email:</strong> If you enter a user’s email address here, clicking on the globe icon on the right hand side of the <em>Email</em> field opens a new mail in your email client.</p></li>
+</ul>
+</section>
+<section id="actions-tab">
+<span id="healthcentermanagement-accessmanagement-access-management-users-actions-tab"></span><h3><em>Actions</em> Tab<a class="headerlink" href="#actions-tab" title="Link to this heading"></a></h3>
+</section>
+<section id="healthcentermanagement-accessmanagement-access-management-users-access-permissions-tab">
+<span id="id1"></span><h3><em>Access Permissions</em> Tab<a class="headerlink" href="#healthcentermanagement-accessmanagement-access-management-users-access-permissions-tab" title="Link to this heading"></a></h3>
+<p>In the <em>Access Permissions</em> tab a user can be assigned to one or more groups. Please be aware that not assigning groups here will lead to users who can log into the system but not do anything within the system.</p>
+</section>
+<section id="preferences-tab">
+<span id="healthcentermanagement-accessmanagement-access-management-users-preferences-tab"></span><h3><em>Preferences</em> Tab<a class="headerlink" href="#preferences-tab" title="Link to this heading"></a></h3>
+<p>In the <em>Preferences</em> tab you can set the preferred language of a user.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stockmanagement.html" class="btn btn-neutral float-left" title="Stock Management" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gnuhealthfederation/index.html" class="btn btn-neutral float-right" title="GNU Health Federation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

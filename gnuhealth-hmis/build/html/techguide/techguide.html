@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Federation Technical Guide &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer’s Corner" href="../devcorner/devcorner.html" />
+    <link rel="prev" title="GNU Health Federation Technical Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GNU Health Federation Technical Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Federation Technical Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#health-information-system-server-his-configuration">Health Information System Server (HIS) configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thalamus-configuration">Thalamus configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#technology">Technology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-user-thalamus-with-postgresql-permissions">Create a new user thalamus with PostgreSQL permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-thalamus">Installing Thalamus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initializing-postgresql-for-the-his-and-person-master-index">Initializing PostgreSQL for the HIS and Person Master Index</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-thalamus-from-a-wsgi-container">Running Thalamus from a WSGI Container</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-ssl-for-encrypted-communication">Enable SSL for encrypted communication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-systemd-service">Create a systemd service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-a-virtual-environment">Using a virtual environment</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#access-control">Access Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GNU Health Federation Technical Guide</a></li>
+      <li class="breadcrumb-item active">Federation Technical Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/techguide/techguide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="federation-technical-guide">
+<span id="techguide-techguide-federation-technical-guide"></span><h1>Federation Technical Guide<a class="headerlink" href="#federation-technical-guide" title="Link to this heading"></a></h1>
+<section id="introduction">
+<span id="techguide-techguide-federation-technical-guide-introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>In this chapter we will go through the technical aspects behind the GNU Health Federation.</p>
+<p>The GNU Health Federation has three main components</p>
+<ul class="simple">
+<li><p>Nodes</p></li>
+<li><p>Message Server</p></li>
+<li><p>Health Information System / Person Master Index</p></li>
+</ul>
+<p>The HMIS node installation and configuration has already been described in previous chapters. In this chapter we will mainly focus on the Health Information System and the Message / Authentication server (Thalamus).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In this chapter we show users and passwords as examples. <strong>Never use these passwords</strong> in production.</p>
+</div>
+</section>
+<section id="health-information-system-server-his-configuration">
+<span id="techguide-techguide-federation-technical-guide-health-information-system-server-his-configuration"></span><h2>Health Information System Server (HIS) configuration<a class="headerlink" href="#health-information-system-server-his-configuration" title="Link to this heading"></a></h2>
+<p>The Person Master Index and Health Information System are both included in the HIS component of the GNU Health Federation.</p>
+</section>
+<section id="thalamus-configuration">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration"></span><h2>Thalamus configuration<a class="headerlink" href="#thalamus-configuration" title="Link to this heading"></a></h2>
+<p>The Thalamus project provides a RESTful API hub to all the GNU Health Federation nodes. The main functions are:</p>
+<ol class="arabic simple">
+<li><p><strong>Message server</strong>: A concentrator and message relay from and to the participating nodes in the GNU Health Federation and the GNU Health Information System. Some of the participating nodes include the GNU Health HMIS,  mobile PHR applications, laboratories, research institutions and civil offices.</p></li>
+<li><p><strong>Authentication Server</strong>: Thalamus also serves as an authentication and authorization server to interact with the GNUHealth Information System</p></li>
+</ol>
+<section id="technology">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-technology"></span><h3>Technology<a class="headerlink" href="#technology" title="Link to this heading"></a></h3>
+<p>RESTful API: Thalamus uses a REST (Representional State Transfer) architectural style, powered by Flask technology</p>
+<p>Thalamus will perform CRUD (Create, Read, Update, Delete) operations. They will be achieved via the following methods upon resources and their instances.</p>
+<ul class="simple">
+<li><p><strong>GET</strong> : Read</p></li>
+<li><p><strong>POST</strong> : Create</p></li>
+<li><p><strong>PATCH</strong> : Update</p></li>
+<li><p><strong>DELETE</strong> : Delete.</p></li>
+</ul>
+<p>The DELETE operations will be minimal.</p>
+<p>JSON: The information will be encoded in JSON format.</p>
+</section>
+<section id="create-a-new-user-thalamus-with-postgresql-permissions">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-create-a-new-user-thalamus-with-postgresql-permissions"></span><h3>Create a new user thalamus with PostgreSQL permissions<a class="headerlink" href="#create-a-new-user-thalamus-with-postgresql-permissions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Install PostgreSQL</p></li>
+<li><p>Locate the pg_hba.conf file and add the following line:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">local</span> <span class="nb">all</span> <span class="nb">all</span> <span class="n">trust</span>
+</pre></div>
+</div>
+<p>If you don’t find the file refer to <a class="reference internal" href="../hmis/installation/vanilla.html#hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-verify-postgresql-authentication-method"><span class="std std-ref">Verify PostgreSQL authentication method</span></a>
+* Restart PostgreSQL:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql.service
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Give permissions to the newly created <em>thalamus user</em>:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;createuser --createdb --no-createrole --no-superuser thalamus&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-thalamus">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-installing-thalamus"></span><h3>Installing Thalamus<a class="headerlink" href="#installing-thalamus" title="Link to this heading"></a></h3>
+<p>Thalamus is a flask application, and is pip installable. Using the <em>thalamus</em> operating system user, install Thalamus server locally.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>wheel
+<span class="linenos">2</span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>thalamus
+<span class="linenos">3</span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>flask-cors
+</pre></div>
+</div>
+</section>
+<section id="initializing-postgresql-for-the-his-and-person-master-index">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-initializing-postgresql-for-the-his-and-person-master-index"></span><h3>Initializing PostgreSQL for the HIS and Person Master Index<a class="headerlink" href="#initializing-postgresql-for-the-his-and-person-master-index" title="Link to this heading"></a></h3>
+<p>The following documentation applies to a demo / test database, that we will call “federation”</p>
+<ol class="arabic simple">
+<li><p><strong>Create the database</strong></p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>createdb<span class="w"> </span>federation
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Locate thalamus</strong></p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>thalamus
+<span class="linenos">2</span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/thalamus/demo/
+</pre></div>
+</div>
+<p>#. <strong>Create the Federation HIS schema</strong>
+Inside the “demo” directory in Thalamus execute the following SQL script</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>psql<span class="w"> </span>-d<span class="w"> </span>federation<span class="w"> </span>&lt;<span class="w"> </span>federation_schema.sql
+</pre></div>
+</div>
+<p>#. <strong>Set the PostgreSQL URI for demo data</strong>
+In <code class="code docutils literal notranslate"><span class="pre">import_pg.py</span></code> adjust the variable <code class="code docutils literal notranslate"><span class="pre">PG_URI</span></code> to fit your needs. It could be sufficient to just put <code class="code docutils literal notranslate"><span class="pre">dbname='federation'</span></code> into <code class="code docutils literal notranslate"><span class="pre">psycopg2.connect(...)</span></code> if your setup fits the default settings.</p>
+<ol class="arabic simple">
+<li><p><strong>Initialize the Federation Demo database</strong></p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>bash<span class="w"> </span>./populate.sh
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Set the PostgreSQL URI for runtime</strong></p></li>
+</ol>
+<p>Just like in the second step either modify <code class="code docutils literal notranslate"><span class="pre">POSTGRESQL_URI</span></code> in <code class="code docutils literal notranslate"><span class="pre">etc/thalamus.cfg</span></code> or modify <code class="code docutils literal notranslate"><span class="pre">psycopg2.connect(...)</span></code> directly in <code class="code docutils literal notranslate"><span class="pre">thalamus.py</span></code> (not in the demo directory).</p>
+<p>At this point you can run and test Thalamus directly from the Flask Werkzeug server,:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>python3<span class="w"> </span>./thalamus.py
+</pre></div>
+</div>
+<p>This is ok for development and testing environments, but for production sites, always run Thalamus from a WSGI container, as described in the next section.</p>
+</section>
+<section id="running-thalamus-from-a-wsgi-container">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-running-thalamus-from-a-wsgi-container"></span><h3>Running Thalamus from a WSGI Container<a class="headerlink" href="#running-thalamus-from-a-wsgi-container" title="Link to this heading"></a></h3>
+<p>In production settings, for performance reasons you should use a HTTP server.
+You will find examples on running Thalamus from <strong>uWSGI</strong> and <strong>gunicorn</strong>.</p>
+<section id="running-thalamus-from-uwsgi">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-running-thalamus-from-a-wsgi-container-running-thalamus-from-uwsgi"></span><h4>Running Thalamus from uWSGI<a class="headerlink" href="#running-thalamus-from-uwsgi" title="Link to this heading"></a></h4>
+<p>uWSGI is a very robust and fast application that is used as a Web Server Gateway Interface in the context of Thalamus, to forward requests to Thalamus coming from other applications (eg, the Federation Portal or the HMIS node).</p>
+<p>First of all install uWSGI and its plugins for HTTP &amp; Python your operating system. For example on Ubuntu:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>uwsgi<span class="w"> </span>uwsgi-plugin-router-access<span class="w"> </span>uwsgi-plugin-python3
+</pre></div>
+</div>
+<p>We have included a uwsgi sample configuration file (etc/thalamus_uwsgi.ini). In order to test uWSGI with HTTP change it into the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span><span class="n">uwsgi</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="n">master</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 3</span><span class="c1">#. https = 0.0.0.0:8443,/opt/gnuhealth/certs/gnuhealthfed.crt,/opt/gnuhealth/certs/gnuhealthfed.key</span>
+<span class="linenos"> 4</span><span class="n">http</span> <span class="o">=</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">8080</span>
+<span class="linenos"> 5</span><span class="n">wsgi</span><span class="o">-</span><span class="n">file</span> <span class="o">=</span> <span class="n">thalamus</span><span class="o">.</span><span class="n">py</span>
+<span class="linenos"> 6</span><span class="nb">callable</span> <span class="o">=</span> <span class="n">app</span>
+<span class="linenos"> 7</span><span class="n">processes</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="linenos"> 8</span><span class="n">threads</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos"> 9</span><span class="n">block</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="mi">32000</span>
+<span class="linenos">10</span><span class="n">stats</span> <span class="o">=</span> <span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">9191</span>
+<span class="linenos">11</span><span class="n">plugins</span> <span class="o">=</span> <span class="n">http</span><span class="p">,</span><span class="n">python</span>
+</pre></div>
+</div>
+<p>To execute Thalamus with the default configuration file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>uwsgi<span class="w"> </span>--ini<span class="w"> </span>etc/thalamus_uwsgi.ini
+</pre></div>
+</div>
+<p>All these arguments can also be passed to the command line.</p>
+</section>
+<section id="running-thalamus-from-gunicorn">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-running-thalamus-from-a-wsgi-container-running-thalamus-from-gunicorn"></span><h4>Running Thalamus from Gunicorn<a class="headerlink" href="#running-thalamus-from-gunicorn" title="Link to this heading"></a></h4>
+<p>Note: There are some issues with delay on requests and closing connections when using SSL from the vueJS portal on gunicorn.</p>
+<p>Gunicorn supports WSGI natively and it comes as Python package. We have included a simple, default config file (<code class="code docutils literal notranslate"><span class="pre">etc/gunicorn.cfg</span></code>) to run Thalamus from Gunicorn with SSL enabled.</p>
+<p>For example, you can run the Thalamus application from Gunicorn as follows. The default configuration file uses secure (SSL) connections:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>gunicorn<span class="w"> </span>--config<span class="w"> </span>etc/gunicorn.cfg<span class="w"> </span>thalamus:app
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enable-ssl-for-encrypted-communication">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-enable-ssl-for-encrypted-communication"></span><h3>Enable SSL for encrypted communication<a class="headerlink" href="#enable-ssl-for-encrypted-communication" title="Link to this heading"></a></h3>
+<p>Either get an official certificate or generate a self-signed certificate and private key</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>openssl<span class="w"> </span>req<span class="w"> </span>-newkey<span class="w"> </span>rsa:2048<span class="w"> </span>-new<span class="w"> </span>-x509<span class="w"> </span>-days<span class="w"> </span><span class="m">3650</span><span class="w"> </span>-nodes<span class="w"> </span>-out<span class="w"> </span>gnuhealthfed.crt<span class="w"> </span>-keyout<span class="w"> </span>gnuhealthfed.key
+</pre></div>
+</div>
+<p>If uWSGI should handle HTTPS, place the certificate (<code class="code docutils literal notranslate"><span class="pre">gnuhealthfed.crt</span></code>) and private key (<code class="code docutils literal notranslate"><span class="pre">gnuhealthfed.key</span></code>) in a directory where the <em>thalamus</em> user has read permissions. Afterwards change etc/thalamus_uwsgi from HTTP to HTTPS using the correct paths.
+Keep a backup of them in a safe place.</p>
+<p>Alternatively keep uWSGI as internal HTTP server and configure a HTTPS reverse proxy. Using apache2 you can create a file thalamus.conf as site with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="o">&lt;</span><span class="n">IfModule</span> <span class="n">mod_ssl</span><span class="o">.</span><span class="n">c</span><span class="o">&gt;</span>
+<span class="linenos"> 2</span><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
+<span class="linenos"> 3</span><span class="n">SSLEngine</span> <span class="n">on</span>
+<span class="linenos"> 4</span><span class="n">SSLCertificateFile</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">gnuhealthfed</span><span class="o">.</span><span class="n">crt</span>
+<span class="linenos"> 5</span><span class="n">SSLCertificateKeyFile</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">private</span><span class="o">/</span><span class="n">gnuhealthfed</span><span class="o">.</span><span class="n">key</span>
+<span class="linenos"> 6</span><span class="n">ServerName</span> <span class="n">domain</span>
+<span class="linenos"> 7</span><span class="n">ProxyPass</span> <span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">your_host</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>
+<span class="linenos"> 8</span><span class="n">ProxyPassReverse</span> <span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">your_host</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>
+<span class="linenos"> 9</span><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
+<span class="linenos">10</span><span class="o">&lt;/</span><span class="n">IfModule</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Depending on the operating system place this inside <code class="code docutils literal notranslate"><span class="pre">/etc/apache2/vhosts.d/</span></code> (openSUSE) or <code class="code docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/</span></code> (Debian/Ubuntu). For the last case enable it afterwards using the <em>a2ensite</em> command. Finally enable some modules and restart apache:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>a2enmod<span class="w"> </span>headers<span class="w"> </span>ssl<span class="w"> </span>proxy<span class="w"> </span>proxy_http
+<span class="linenos">2</span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2.service
+</pre></div>
+</div>
+</section>
+<section id="create-a-systemd-service">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-create-a-systemd-service"></span><h3>Create a systemd service<a class="headerlink" href="#create-a-systemd-service" title="Link to this heading"></a></h3>
+<p>In order to control Thalamus with systemctl and enable it to be activated after startup create a service file thalamus.service with the following content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="n">Description</span><span class="o">=</span><span class="n">Thalamus</span> <span class="n">Server</span>
+<span class="linenos"> 3</span><span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="n">User</span><span class="o">=</span><span class="n">thalamus</span>
+<span class="linenos"> 7</span><span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">path</span><span class="o">/</span><span class="n">thalamus</span>
+<span class="linenos"> 8</span><span class="n">ExecStart</span><span class="o">=</span><span class="n">uwsgi</span> <span class="o">--</span><span class="n">ini</span> <span class="n">etc</span><span class="o">/</span><span class="n">thalamus_uwsgi</span><span class="o">.</span><span class="n">ini</span>
+<span class="linenos"> 9</span><span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">abort</span>
+<span class="linenos">10</span><span class="n">Type</span><span class="o">=</span><span class="n">notify</span>
+<span class="linenos">11</span><span class="n">KillSignal</span><span class="o">=</span><span class="n">SIGQUIT</span>
+<span class="linenos">12</span><span class="n">StandardError</span><span class="o">=</span><span class="n">syslog</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="linenos">15</span><span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<p>For the working directory take the path from above for the pip directory.
+Put this in the appropriate directory for your operating system: For example <code class="code docutils literal notranslate"><span class="pre">/etc/systemd/system/</span></code> on Debian/Ubuntu or <code class="code docutils literal notranslate"><span class="pre">/usr/lib/systemd/system/</span></code> on openSUSE. Afterwards start and enable the service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>thalamus.service
+<span class="linenos">2</span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>thalamus.service
+</pre></div>
+</div>
+</section>
+<section id="using-a-virtual-environment">
+<span id="techguide-techguide-federation-technical-guide-thalamus-configuration-using-a-virtual-environment"></span><h3>Using a virtual environment<a class="headerlink" href="#using-a-virtual-environment" title="Link to this heading"></a></h3>
+<p>If you want to use a virtual environment create and activate the virtual environment before installing Thalamus:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/home/thalamus/venv
+<span class="linenos">2</span><span class="nb">source</span><span class="w"> </span>/home/thalamus/venv/bin/activate
+</pre></div>
+</div>
+<p>Besides add the following line to <code class="code docutils literal notranslate"><span class="pre">etc/thalamus_uwsgi.ini</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nv">venv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/thalamus/venv/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="access-control">
+<span id="techguide-techguide-federation-technical-guide-access-control"></span><h2>Access Control<a class="headerlink" href="#access-control" title="Link to this heading"></a></h2>
+<p>Thalamus uses a “role” approach related to Authorization. It’s basic, yet versatile.</p>
+<p>Each role has the following methods permissions: GET, PATCH, POST, DELETE</p>
+<p>The permissions work at <em>endpoint</em> level. Examples of endpoints are “person” or “page” of life.</p>
+<p>Following there is sample of the “roles.cfg” file, which shows three main roles:  <code class="code docutils literal notranslate"><span class="pre">end_user</span></code>, <code class="code docutils literal notranslate"><span class="pre">health_professional</span></code> and <code class="code docutils literal notranslate"><span class="pre">root</span></code>.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span>
+<span class="linenos"> 2</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos"> 3</span><span class="w">        </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;end_user&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span><span class="w">        </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos"> 5</span><span class="w">                </span><span class="s2">&quot;GET&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;book&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+<span class="linenos"> 6</span><span class="w">                </span><span class="s2">&quot;PATCH&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos"> 7</span><span class="w">                </span><span class="s2">&quot;POST&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;page&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+<span class="linenos"> 8</span><span class="w">                </span><span class="s2">&quot;DELETE&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="linenos"> 9</span><span class="w">                </span><span class="s2">&quot;global&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;False&quot;</span>
+<span class="linenos">10</span><span class="w">                </span><span class="p">}</span>
+<span class="linenos">11</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">14</span><span class="w">        </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;health_professional&quot;</span><span class="p">,</span>
+<span class="linenos">15</span><span class="w">        </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">16</span><span class="w">                </span><span class="s2">&quot;GET&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">,</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;book&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos">17</span><span class="w">                </span><span class="s2">&quot;PATCH&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos">18</span><span class="w">                </span><span class="s2">&quot;POST&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos">19</span><span class="w">                </span><span class="s2">&quot;DELETE&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="linenos">20</span><span class="w">                </span><span class="s2">&quot;global&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;True&quot;</span>
+<span class="linenos">21</span><span class="w">                </span><span class="p">}</span>
+<span class="linenos">22</span><span class="w">        </span><span class="p">},</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">        </span><span class="p">{</span>
+<span class="linenos">25</span><span class="w">        </span><span class="s2">&quot;role&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;root&quot;</span><span class="p">,</span>
+<span class="linenos">26</span><span class="w">        </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="linenos">27</span><span class="w">                </span><span class="s2">&quot;GET&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;people&quot;</span><span class="p">,</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;book&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;page&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+<span class="linenos">28</span><span class="w">                </span><span class="s2">&quot;PATCH&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos">29</span><span class="w">                </span><span class="s2">&quot;POST&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">,</span><span class="w">  </span><span class="s2">&quot;password&quot;</span><span class="p">],</span>
+<span class="linenos">30</span><span class="w">                </span><span class="s2">&quot;DELETE&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;person&quot;</span><span class="p">,</span><span class="s2">&quot;page&quot;</span><span class="p">],</span>
+<span class="linenos">31</span><span class="w">                </span><span class="s2">&quot;global&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;True&quot;</span>
+<span class="linenos">32</span><span class="w">                </span><span class="p">}</span>
+<span class="linenos">33</span><span class="w">        </span><span class="p">}</span>
+<span class="linenos">34</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Once the user has provided the right credentials, she / he will have the access level to the documents associated to the roles. A user can have one or multiple roles. For example, a health professional usually belongs to two groups:</p>
+<ul class="simple">
+<li><p><em>person</em> : she create and read her documents, change her password, etc. Usually her domain is restricted to herself. She can not act on others documents</p></li>
+<li><p><em>health_professional</em> : She can see her patient medical history, but she can not change her password.</p></li>
+</ul>
+<p>If you executed <code class="code docutils literal notranslate"><span class="pre">populate.sh</span></code> you can use the user/password combination ITAPYT999HON:gnusolidario to test the connection.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="GNU Health Federation Technical Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../devcorner/devcorner.html" class="btn btn-neutral float-right" title="Developer’s Corner" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

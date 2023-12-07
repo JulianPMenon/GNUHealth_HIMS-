@@ -1,0 +1,69 @@
+.. _hmis-usingrestserver:using_the_fhir_rest_server:
+
+Using the FHIR REST server
+==========================
+.. _hmis-usingrestserver:using_the_fhir_rest_server-fhir_overview:
+
+FHIR Overview
+-------------
+**Fast Healthcare Interoperability Resources (FHIR)** is a standard for exchanging healthcare information electronically developed by HL7. The standard defines a common interface for medical software interoperability. For more reading, look at the `FHIR standard <http://www.hl7.org/implement/standards/fhir/>`_.
+
+.. _hmis-usingrestserver:using_the_fhir_rest_server-url_structure:
+
+URL Structure
+-------------
+
+The FHIR standard defines a REST API, a set of interactions with each resource. Each resource handles different types of information. Currently, the GNU Health FHIR server supports 12 resources:
+
+* **Conformance**: Describes the server's FHIR capabilities.
+* **Patient**: Patient information, like email, address, SSN, etc.
+* **DiagnosticReport**: Completed lab tests, but not the data
+* **Observation**: Lab data, like Uric Acid values
+* **Practitioner**: Health professionals and their information
+* **Procedure**: Surgeries/operations
+* **Condition**: Diseases/diagnoses
+* **FamilyHistory**: Family histories of patients
+* **Medication**: Medications (not prescriptions!)
+* **MedicationStatement**: Medications taken by a patient
+* **Immunization**: Immunizations
+* **Organization**: Institutions, departments, companies, etc.
+
+Each resource has its own endpoint. For example, the **Patient** endpoint is found at :code:`/Patient`, the **DiagnosticReport** endpoint at :code:`DiagnosticReport`, and so on. The only exception to this naming schema is the **Conformance** endpoint which is found at :code:`/` and :code:`/metadata`.
+
+The interactions use HTTP verbs. Simple read and search interactions with GET, and so on.
+
+For further reading into the REST design, read the `documentation <http://www.hl7.org/implement/standards/fhir/http.html>`_
+
+.. note::
+        Currently, the GNU Health FHIR server has no write functionality.
+
+.. _hmis-usingrestserver:using_the_fhir_rest_server-authentication:
+
+Authentication
+--------------
+
+**All resources, except for Conformance, require authentication**. The server authenticates with the user credentials of the underlying GNU Health/Tryton server. Login with your user credentials at :code:`/auth/login`. Logout at :code:`/auth/logout`. There is a simple welcome page for logged-in users at :code:`/auth/home`. 
+
+.. _hmis-usingrestserver:using_the_fhir_rest_server-searching_/_listing:
+
+Searching / Listing
+-------------------
+
+To search a resource, simply add arguments to the endpoint to refine the search. For example, <tt>/Patient</tt>, will return all the patients on the server. <tt>/Patient?name=ana</tt> will return all the patients with Ana in their name.
+
+.. note::
+        Many search criteria for the GNU Health FHIR server are not supported yet.
+
+Refer to the FHIR documentation for more information.
+
+.. _hmis-usingrestserver:using_the_fhir_rest_server-test_server_examples:
+
+Test Server Examples
+--------------------
+
+Some examples with the community FHIR server (may need to sign in):
+
+* `List all patients <http://federation.gnuhealth.org:5000/Patient>`_
+* `Show info for patient id #1 <http://federation.gnuhealth.org:5000/Patient/1>`_
+* `List all surgeries <http://federation.gnuhealth.org:5000/Procedure>`_
+* `List Lab results <http://federation.gnuhealth.org:5000/Observation>`_

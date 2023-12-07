@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Live-CD &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plugins" href="../plugins/index.html" />
+    <link rel="prev" title="The Demo database" href="demodb.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../his/index.html">Health Information System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hmis/index.html">GNU Health HMIS Node Technical Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Demo and test environments</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="testgnuhealth.html">Different ways to test GNU Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demodb.html">The Demo database</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Live-CD</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-live-cd">Download the Live-CD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-live-cd">Install the Live-CD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usb-stick-hard-disk-image">USB-Stick / Hard Disk Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iso-image-cd">ISO-Image / CD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-live-cd-to-your-hard-drive">Install the Live-CD to your hard drive</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-machine-images">Virtual Machine Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-virtual-machine-as-server">Running the Virtual Machine as Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adjustments">Adjustments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Demo and test environments</a></li>
+      <li class="breadcrumb-item active">The Live-CD</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demo_test/livecd.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-live-cd">
+<span id="demo-test-livecd-the-live-cd"></span><h1>The Live-CD<a class="headerlink" href="#the-live-cd" title="Link to this heading"></a></h1>
+<p>The GNU Health Demo Database is available as Live-CD. This gives interested users the option to run GNU Health on their own PC, and, if desired, install the GNU Health demo database directly from the CD.</p>
+<p>Similar as the demo database, the live-CD is an ongoing project and it will be adapting to the each new GNU Health version. The clinical history will also grow with time.</p>
+<p>There is a <a class="reference external" href="https://www.youtube.com/watch?v=QtYV0Y9tyQ8">video tutorial</a> available demonstrating the installation of the GNU Health 3.0 Live CD in a Virtual Box.</p>
+<section id="download-the-live-cd">
+<span id="demo-test-livecd-the-live-cd-download-the-live-cd"></span><h2>Download the Live-CD<a class="headerlink" href="#download-the-live-cd" title="Link to this heading"></a></h2>
+<p>The Live-CD was built on <a class="reference external" href="https://susestudio.com/">SUSEStudio</a>, and is currently available with the following flavours:</p>
+<ul class="simple">
+<li><p>GNU Health 3.0: <a class="reference external" href="https://susestudio.com/a/7hReQg/gnu-health-3-0-kde5-64bit">openSUSE Leap 42.1 / KDE5 / 64bit</a></p></li>
+<li><p>GNU Health 3.0: <a class="reference external" href="https://susestudio.com/a/7hReQg/gnu-health-3-0-kde-4-32bit">openSUSE 13.1 / KDE4 / 32bit</a></p></li>
+<li><p>GNU Health 3.0: <a class="reference external" href="https://susestudio.com/a/7hReQg/gnu-health-3-0-sles-12-sp1">SLES 12SP1 / Text-based Server version / 64bit</a></p></li>
+<li><p>GNU Health 2.8: <a class="reference external" href="https://susestudio.com/a/7hReQg/gnu-health-2-8-kde-64bit-uefi">openSUSE Leap 42.1 / KDE / 64bit / UEFI</a></p></li>
+<li><p>GNU Health 2.6: Archived, available on request</p></li>
+<li><p>GNU Health 2.4: Archived, available on request</p></li>
+</ul>
+<p>Please note: The user name and password necessary to access the GNU Health server on the Live-CD can be found on that download page as well.</p>
+<p>Unlike the full version of openSUSE, the Live-CD contains only packages that are required to run GNU Health. Feel free to add required programs later on from the openSUSE repositories.</p>
+<p>It is recommended to use the Server version SLES 12 on a virtual machine, as it comes with no client! See <a class="reference internal" href="#demo-test-livecd-virtual-machine-images"><span class="std std-ref">Documentation</span></a></p>
+</section>
+<section id="install-the-live-cd">
+<span id="demo-test-livecd-the-live-cd-install-the-live-cd"></span><h2>Install the Live-CD<a class="headerlink" href="#install-the-live-cd" title="Link to this heading"></a></h2>
+<p>In order to use the Live-CD, you have to install it on a CD or a USB stick.</p>
+<section id="usb-stick-hard-disk-image">
+<span id="demo-test-livecd-the-live-cd-install-the-live-cd-usb-stick-hard-disk-image"></span><h3>USB-Stick / Hard Disk Image<a class="headerlink" href="#usb-stick-hard-disk-image" title="Link to this heading"></a></h3>
+<p>The hard disk image comes as packed raw format. After download, first unpack the *.tar.gz file</p>
+<ul class="simple">
+<li><p>On Linux/Mac-OS, use your favorite archiving program, or use <code class="code docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">*tar.gz</span></code> from the command line</p></li>
+<li><p>On Windows, use an advanced packer like 7-Zip</p></li>
+</ul>
+<p>After unpacking, you have to install the RAW-file to a stick. <a class="reference external" href="http://en.opensuse.org/Live_USB_stick">Create a Live USB stick using Windows</a>. <a class="reference external" href="https://en.opensuse.org/SDB:Create_a_Live_USB_stick_using_Windows">See instructions</a></p>
+<p>Note: When booting the first time from the USB-Stick, the boot process takes a bit longer, as the stick is being optimized (data and swap space creation). Second boot will be much quicker.</p>
+</section>
+<section id="iso-image-cd">
+<span id="demo-test-livecd-the-live-cd-install-the-live-cd-iso-image-cd"></span><h3>ISO-Image / CD<a class="headerlink" href="#iso-image-cd" title="Link to this heading"></a></h3>
+<p>If you have downloaded the ISO image to burn a CD, you can find the relevant instructions <a class="reference external" href="http://en.opensuse.org/SDB:Download_help#.Burn_the_ISO_image.28s.29">here</a>.</p>
+</section>
+</section>
+<section id="install-the-live-cd-to-your-hard-drive">
+<span id="demo-test-livecd-the-live-cd-install-the-live-cd-to-your-hard-drive"></span><h2>Install the Live-CD to your hard drive<a class="headerlink" href="#install-the-live-cd-to-your-hard-drive" title="Link to this heading"></a></h2>
+<p>The Live-CD offers the option to install the system and the GNU Health Demo-DB to your hard drive. The relevant program can be found in the <em>My Computer</em> section of the start menu (the little green button on the lower left corner of the screen).</p>
+</section>
+</section>
+<section id="virtual-machine-images">
+<span id="demo-test-livecd-virtual-machine-images"></span><h1>Virtual Machine Images<a class="headerlink" href="#virtual-machine-images" title="Link to this heading"></a></h1>
+<p>The live-CD is available in various container formats that allow easy integration into a virtual environment. Currently the following formats are published:</p>
+<ul class="simple">
+<li><p>Xen Guest (.img)</p></li>
+<li><p>OVF Virtual Machine / ESXI (.ovf)</p></li>
+<li><p>VMware Workstation / VirtualBox (.vmdk)</p></li>
+<li><p>SUSE Cloud / OpenStack / KVM (.qcow2)</p></li>
+<li><p>Hyper-V Virtual Hard Disk (.vhd)</p></li>
+<li><p>Amazon EC2 Cloud (.ami)</p></li>
+</ul>
+<p>We have recorded a <a class="reference external" href="https://www.youtube.com/watch?v=QtYV0Y9tyQ8">Screencast</a> that shows the setup of a Virtual machine.</p>
+<section id="running-the-virtual-machine-as-server">
+<span id="demo-test-livecd-virtual-machine-images-running-the-virtual-machine-as-server"></span><h2>Running the Virtual Machine as Server<a class="headerlink" href="#running-the-virtual-machine-as-server" title="Link to this heading"></a></h2>
+<p>Several times the question came up ‘How can I access my Live-CD from another desktop’? This should not be too difficult if you consider some points. The following example bases on Virtualbox, but should be similar on other virtual environments:</p>
+<ul class="simple">
+<li><p>When setting up the network, make sure you select ‘Bridged Network’. In this case the virtual box will receive the IP-Address from your DHCP-Server, not from the host-machine</p></li>
+<li><p>Make sure the network-name of your virtual box is updated to your DDNS-Server. Even better, you may assign a fix network address to your virtual box, say 192.168.2.100</p></li>
+<li><p>Try to ping the box from an external client on the network: open a console and type: ping 192.168.2.100</p></li>
+<li><p>If this works, and your GNUHealth server is running, check if you can access the server from outside: telnet 192.168.2.100 8000</p></li>
+</ul>
+<p>If this works, everything is good.&lt;br /&gt;If not, its time to check the firewall settings of your box. From the Start Menu, select <em>System → Administration → YaST</em>. Enter the password for ‘root’: tryton , and go to ‘firewall Settings’. Check the external zone (right interface name?) or even add an exception for the 192.168.2.100/24 network</p>
+</section>
+<section id="adjustments">
+<span id="demo-test-livecd-virtual-machine-images-adjustments"></span><h2>Adjustments<a class="headerlink" href="#adjustments" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>You may want to change the language and keyboard to your preferred setting. From the Start Menu, select <em>System → Administration → YaST</em>. Enter the password for ‘root’: tryton . You have reached the administration settings. From the ‘System’ Section select ‘Language’ to change the primary language.</p></li>
+<li><p>You may want to run an online update. From the Start Menu, select <em>System → Administration → YaST</em>. Enter the password for ‘root’: tryton . You have reached the administration settings. From the ‘Software’ Section select ‘Online-Update’.</p></li>
+<li><p>You may want to increase the display resolution of your virtual machine (which may be as low as 640 x 480 pixel). From the Start Menu, select <em>System → Administration → YaST</em>. If the system asks you to log in, enter <em>root</em> as user and <em>tryton</em> as password. From the YaST main screen select <em>Software</em> in the left column, then <em>Software Management</em> in the right column. Then search for <em>virtualbox</em>, select all packages with the word <em>guest</em> in their name and install them. After rebooting your virtual machine you should have higher resolutions available.</p></li>
+<li><p>You may want to install additional software. From the Start Menu, select <em>System → Administration → YaST</em>. Enter the password for ‘root’: tryton . You have reached the administration settings. From the ‘Software’ Section select ‘Software Management’.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demodb.html" class="btn btn-neutral float-left" title="The Demo database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plugins/index.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

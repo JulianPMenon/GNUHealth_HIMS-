@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vanilla Installation &mdash; GNU Health Hospital Management 4.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=0cd558ae"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js?v=ffc8af2d"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js?v=12818e64"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Other Installation Methods" href="other.html" />
+    <link rel="prev" title="Ansible Installation" href="ansible.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            GNU Health Hospital Management
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support.html">Resources and Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../functionality.html">GNU Health HMIS functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../basics/index.html">The Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../patientmanagement/index.html">Patient Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../healthcentermanagement/index.html">Health Center Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gnuhealthfederation/index.html">GNU Health Federation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modulesindetail/index.html">Modules in Detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../his/index.html">Health Information System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">GNU Health HMIS Node Technical Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ansible.html">Ansible Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Vanilla Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errata">Errata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-gnu-health-on-gnu-linux-and-freebsd">Installing GNU Health on GNU/Linux and FreeBSD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initialize-the-database-instance">Initialize the database instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-systemd-service-for-the-gnu-health-server">Creating a Systemd service for the GNU Health server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-a-wsgi-server-for-gnu-health-hospital-management-component">Using a WSGI Server for GNU Health Hospital Management Component</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-of-the-gnu-health-client">Installation of the GNU Health Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-into-the-application">Logging into the Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-the-default-modules">Installing the Default Modules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-company">Creating a Company</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disabling-demo-users-in-production-environments">Disabling demo users in production environments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-gnu-health-client">Customizing the GNU Health Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#completion">Completion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="other.html">Other Installation Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../administration/index.html">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../centralauthentication.html">Central Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../controlcenter.html">The GNU Health Control Center</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sysinfo.html">The SYSINFO Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../patches.html">Patches and Patchsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../upgrade.html">Upgrade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../backups.html">Backups and High-Availability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../restserver.html">FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usingrestserver.html">Using the FHIR REST server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../release.html">Release Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../demo_test/index.html">Demo and test environments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../embedded/index.html">The GNU Health Embedded project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techguide/index.html">GNU Health Federation Technical Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../devcorner/devcorner.html">Developer’s Corner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../appendix/index.html">Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">ToDo’s</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">GNU Health Hospital Management</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">GNU Health HMIS Node Technical Guide</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Installation</a></li>
+      <li class="breadcrumb-item active">Vanilla Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/hmis/installation/vanilla.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vanilla-installation">
+<span id="hmis-installation-vanilla-vanilla-installation"></span><h1>Vanilla Installation<a class="headerlink" href="#vanilla-installation" title="Link to this heading"></a></h1>
+<section id="requirements">
+<span id="hmis-installation-vanilla-vanilla-installation-requirements"></span><h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<p>The latest stable <strong>GNU Health Federation</strong> ecosystem uses these main resources:</p>
+<ul class="simple">
+<li><p>Operating system: GNU/Linux or FreeBSD for the server.</p></li>
+<li><p>RDBMS Database: :ref`PostgreSQL` <strong>&gt;= 10.x</strong></p></li>
+<li><p>Document-oriented Database for Health Information System / Person Master Index: PostgreSQL: <strong>&gt;= 10.x</strong></p></li>
+<li><p>Python: <strong>&gt;= 3.6</strong></p></li>
+<li><p>uwsgi : <strong>&gt;= 2.0</strong></p></li>
+<li><p>Flask : <strong>1.0</strong></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Tryton">Tryton</a> <strong>6.0</strong></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29">Bash shell</a></p></li>
+<li><p>PIP for <strong>Python3</strong>, verify through</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>pip<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>You should see <em>python3</em>, as in: <code class="code docutils literal notranslate"><span class="pre">pip</span> <span class="pre">x.x.</span> <span class="pre">from</span> <span class="pre">/usr/local/lib/python3.6/site-packages</span> <span class="pre">(python</span> <span class="pre">3.6)</span></code>
+If you see python2.x then stop and get pip for Python 3.</p>
+</section>
+<section id="errata">
+<span id="hmis-installation-vanilla-vanilla-installation-errata"></span><h2>Errata<a class="headerlink" href="#errata" title="Link to this heading"></a></h2>
+<p>Before you continue, please read the <a class="reference internal" href="../../appendix/errata.html#appendix-errata-errata"><span class="std std-ref">Errata</span></a> chapter for the latest issues involved the installation or upgrade procedure.</p>
+</section>
+<section id="installing-gnu-health-on-gnu-linux-and-freebsd">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd"></span><h2>Installing GNU Health on GNU/Linux and FreeBSD<a class="headerlink" href="#installing-gnu-health-on-gnu-linux-and-freebsd" title="Link to this heading"></a></h2>
+<section id="operating-system-requirements">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-operating-system-requirements"></span><h3>Operating System requirements<a class="headerlink" href="#operating-system-requirements" title="Link to this heading"></a></h3>
+<p>The following table contains the instructions to setup your operating system for a standard GNU Health installation. The operating systems and their version shown in the list have been tested using the instructions for each OS.</p>
+<p>The installation instructions for the different operating systems and distributions have been done on a fresh installation. For simplicity’s sake, the server environment was installed without a GUI. No firewall was configured (we will cover this on the security section), and OpenSSH server was installed.</p>
+<p>The instructions – written here – have been applied and verified with the following operating systems as shown below.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Verify that you are using the operating system version documented on the following table</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operating System</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Link</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>openSUSE</p></td>
+<td><p>Leap 15.4</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-opensuse"><span class="std std-ref">openSUSE</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>FreeBSD</p></td>
+<td><p>FreeBSD 12.1</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-freebsd"><span class="std std-ref">FreeBSD</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>CentOS</p></td>
+<td><p>7.8</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-centos"><span class="std std-ref">CentOS</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu</p></td>
+<td><p>20.04</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-ubuntu"><span class="std std-ref">Ubuntu</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Armbian</p></td>
+<td><p>20.05</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-armbian"><span class="std std-ref">Armbian</span></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Debian</p></td>
+<td><p>10.1</p></td>
+<td><p><a class="reference internal" href="../../appendix/opsystem.html#appendix-opsystem-operating-system-specific-notes-debian"><span class="std std-ref">Debian</span></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setting-up-network-time-protocol-ntp">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-setting-up-network-time-protocol-ntp"></span><h3>Setting up Network Time Protocol (NTP)<a class="headerlink" href="#setting-up-network-time-protocol-ntp" title="Link to this heading"></a></h3>
+<p>In order to properly run GNU Health, you need to make sure that the time on both the server (database and central instance) and clients are properly set and in sync. The best way to do this is to keep your clock synchronized with a <a class="reference external" href="https://en.wikipedia.org/wiki/Network_Time_Protocol">NTP Server</a> .</p>
+<p>This is a critical step, not only for the smooth functioning of GNU Health, but also because many documents will have a timestamp associated with them that can have legal value.</p>
+</section>
+<section id="creating-the-operating-system-user">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-creating-the-operating-system-user"></span><h3>Creating the Operating System User<a class="headerlink" href="#creating-the-operating-system-user" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do this step only if you <strong>didn’t</strong> create the user during the installation of the operating system.</p>
+</div>
+<p>The following steps will create the GNU Health operating system user. Please note that many operating systems give you the option to create a regular user at installation time. If you already created the “gnuhealth” operating system user, you can skip this section, otherwise, create it now.</p>
+<p>Run the following command <strong>as root</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>adduser<span class="w"> </span>gnuhealth
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your Operating System <strong>doesn’t</strong> include the adduser command, you can use the useradd command:</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>useradd<span class="w"> </span>-m<span class="w"> </span>gnuhealth
+</pre></div>
+</div>
+</section>
+<section id="verify-postgresql-authentication-method">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-verify-postgresql-authentication-method"></span><h3>Verify PostgreSQL authentication method<a class="headerlink" href="#verify-postgresql-authentication-method" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can <strong>skip</strong> this section if you made a standard installation on <strong>FreeBSD</strong></p>
+</div>
+<p>PostgreSQL uses different authentication methods (MD5, ident, trust … ). Depending the Operating System, the postgreSQL server authentication method will vary.</p>
+<p>The standard GNU&amp;nbsp;Health installation uses the <strong>trust</strong> authentication method, so you need to check the postgreSQL authentication file configuration.</p>
+<p>Locate the <code class="code docutils literal notranslate"><span class="pre">g_hba.conf</span></code> file and verify that the <strong>trust</strong> method is set.
+The location of this configuration file varies across operating systems; under UNIX/Linux, the full pathname of the file can be obtained with the following command, to be executed as <strong>root</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>su<span class="w"> </span>-<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;psql -t -P format=unaligned -c &#39;show hba_file&#39;&quot;</span>
+</pre></div>
+</div>
+<p>You may need to start the postgres server at least one time as this file may be created during first startup. Usually this file is located at <code class="code docutils literal notranslate"><span class="pre">etc/postgresql/10/main</span></code> or <code class="code docutils literal notranslate"><span class="pre">/var/lib/pgsql/data</span></code>.</p>
+<p>An example configuration file entry specifying use of the <strong>trust</strong> method is given in the following line:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">local</span><span class="w"> </span>all<span class="w"> </span>all<span class="w"> </span>trust
+</pre></div>
+</div>
+<p>The following example in particular may address issues with establishing a working database connection as reported in the context of the creation of the GNU&amp;nbsp;Health database upon first use of the Tryton client (see further down; Symptom: the “Create” button is not displayed):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>host<span class="w"> </span>all<span class="w"> </span>all<span class="w"> </span><span class="m">127</span>.0.0.1/32<span class="w"> </span>trust
+<span class="linenos">2</span>host<span class="w"> </span>all<span class="w"> </span>all<span class="w"> </span>::1/128<span class="w">      </span>trust
+</pre></div>
+</div>
+<p>Make sure you edit the file as user ‘postgres’, not root. Otherwise, postgres may have trouble reading the changed file. After any changes to the file, the postgreSQL server needs to be restarted.</p>
+<p>Many authentication errors (e.g., database connection errors) arise because of not having correctly configured this file. Of course, you can use other authentication methods, and you can adapt the tryton / GNU Health configuration file to each of them. For the sake of simplicity, we based the documentation and sample files in this book on one specific method (trust).</p>
+<p>Make sure you <strong>restart your postgresql server</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>sudo<span class="w"> </span>service<span class="w"> </span>postgresql<span class="w"> </span>restart
+</pre></div>
+</div>
+</section>
+<section id="creating-the-database-user">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-creating-the-database-user"></span><h3>Creating the Database User<a class="headerlink" href="#creating-the-database-user" title="Link to this heading"></a></h3>
+<p>The following command switches to the &lt;tt&gt;postgres&lt;/tt&gt; administration user and gives permissions to your newly created <code class="code docutils literal notranslate"><span class="pre">gnuhealth</span></code> administrator:</p>
+<p>Execute as <strong>root</strong>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>su<span class="w"> </span>-<span class="w"> </span>postgres<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;createuser --createdb --no-createrole --no-superuser gnuhealth&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="downloading-and-installing-gnu-health">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-downloading-and-installing-gnu-health"></span><h3>Downloading and Installing GNU Health<a class="headerlink" href="#downloading-and-installing-gnu-health" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do the following steps with your newly created <em>gnuhealth</em> user, <strong>do not</strong> use root.</p>
+</div>
+</section>
+<section id="running-the-gnu-health-installer">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer"></span><h3>Running the GNU Health Installer<a class="headerlink" href="#running-the-gnu-health-installer" title="Link to this heading"></a></h3>
+<section id="become-user-gnuhealth">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-become-user-gnuhealth"></span><h4>Become user gnuhealth<a class="headerlink" href="#become-user-gnuhealth" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>su<span class="w"> </span>-<span class="w"> </span>gnuhealth
+<span class="linenos">2</span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
+</pre></div>
+</div>
+</section>
+<section id="download-gnu-health-from-gnu-org">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-download-gnu-health-from-gnu-org"></span><h4>Download GNU Health from GNU.org<a class="headerlink" href="#download-gnu-health-from-gnu-org" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>wget<span class="w"> </span>https://ftp.gnu.org/gnu/health/gnuhealth-latest.tar.gz
+</pre></div>
+</div>
+</section>
+<section id="verify-the-package-signature">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-verify-the-package-signature"></span><h4>Verify the package signature<a class="headerlink" href="#verify-the-package-signature" title="Link to this heading"></a></h4>
+<p>First get the signing key if you haven’t done so:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>gpg<span class="w"> </span>--recv-key<span class="w">  </span>--keyserver<span class="w">  </span>keyserver.ubuntu.com<span class="w"> </span>0xC015E1AE00989199
+</pre></div>
+</div>
+<p>The key is issued by <em>Luis Falcon (meanmicio at GNU) &lt;falcon&#64;gnu.org&gt;</em> and its fingerprint is <em>ACBF C80F C891 631C 68AA 8DC8 C015 E1AE 0098 9199</em>. This information can be seen issuing:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>gpg<span class="w"> </span>--with-fingerprint<span class="w"> </span>--list-keys<span class="w"> </span>0xC015E1AE00989199
+</pre></div>
+</div>
+<p>Then, verify the signature, using the matching version number for the latest. For instance, if latest GNU Health version is 4.0.4, then</p>
+<p>Download the detached signature:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>wget<span class="w"> </span>https://ftp.gnu.org/gnu/health/gnuhealth-4.0.4.tar.gz.sig
+</pre></div>
+</div>
+<p>Verify the package using the detached signature:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>gpg<span class="w"> </span>--verify<span class="w"> </span>gnuhealth-4.0.4.tar.gz.sig<span class="w"> </span>gnuhealth-latest.tar.gz
+</pre></div>
+</div>
+<p>If the file is correctly validated, the output should be something like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>gpg:<span class="w"> </span>Signature<span class="w"> </span>made<span class="w"> </span>Sat<span class="w"> </span><span class="m">01</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">2017</span><span class="w"> </span><span class="m">11</span>:06:25<span class="w"> </span>PM<span class="w"> </span>WEST
+<span class="linenos">2</span>gpg:<span class="w">                </span>using<span class="w"> </span>RSA<span class="w"> </span>key<span class="w"> </span>ACBFC80FC891631C68AA8DC8C015E1AE00989199
+<span class="linenos">3</span>gpg:<span class="w"> </span>Good<span class="w"> </span>signature<span class="w"> </span>from<span class="w"> </span><span class="s2">&quot;Luis Falcon (GNU) &lt;falcon@gnu.org&gt;&quot;</span><span class="w"> </span><span class="o">[</span>ultimate<span class="o">]</span>
+<span class="linenos">4</span>gpg:<span class="w">                 </span>aka<span class="w"> </span><span class="s2">&quot;Luis Falcon (GNU Health) &lt;lfalcon@gnusolidario.org&gt;&quot;</span><span class="w"> </span><span class="o">[</span>ultimate<span class="o">]</span>
+</pre></div>
+</div>
+<p>The important part is the <em>Good signature from “Luis Falcon ….”</em>. The WARNING means that, even if the file and signature are OK and validated correctly, you aren’t trusting that key; and it’s OK. You can read more about this in <a class="reference external" href="https://www.gnupg.org/gph/en/manual/x334.html">The GNU Privacy Handbook, Chapter 3. Key Management</a>.</p>
+</section>
+<section id="uncompress-gnu-health-hmis-package">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-uncompress-gnu-health-hmis-package"></span><h4>Uncompress GNU Health HMIS package<a class="headerlink" href="#uncompress-gnu-health-hmis-package" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>tar<span class="w"> </span>xzf<span class="w"> </span>gnuhealth-latest.tar.gz
+</pre></div>
+</div>
+</section>
+<section id="change-to-the-gnu-health-installation-directory-matching-your-version">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-change-to-the-gnu-health-installation-directory-matching-your-version"></span><h4>Change to the GNU Health installation directory matching your version<a class="headerlink" href="#change-to-the-gnu-health-installation-directory-matching-your-version" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">cd</span><span class="w"> </span>gnuhealth-4.0.4
+</pre></div>
+</div>
+</section>
+<section id="download-the-latest-gnu-health-installer">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-download-the-latest-gnu-health-installer"></span><h4>Download the latest GNU Health installer<a class="headerlink" href="#download-the-latest-gnu-health-installer" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>wget<span class="w"> </span>-qO-<span class="w"> </span>https://ftp.gnu.org/gnu/health/gnuhealth-setup-latest.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>-
+</pre></div>
+</div>
+</section>
+<section id="run-the-gnu-health-installer">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-run-the-gnu-health-installer"></span><h4>Run the GNU Health Installer<a class="headerlink" href="#run-the-gnu-health-installer" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>bash<span class="w"> </span>./gnuhealth-setup<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="enable-the-bash-environment-for-the-gnu-health-admin">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-enable-the-bash-environment-for-the-gnu-health-admin"></span><h4>Enable the BASH environment for the GNU Health admin<a class="headerlink" href="#enable-the-bash-environment-for-the-gnu-health-admin" title="Link to this heading"></a></h4>
+<p>Finally, enable the BASH environment for the gnuhealth user.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.gnuhealthrc
+</pre></div>
+</div>
+</section>
+<section id="activate-network-devices-for-the-json-rpc-protocol">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-activate-network-devices-for-the-json-rpc-protocol"></span><h4>Activate Network Devices for the JSON-RPC Protocol<a class="headerlink" href="#activate-network-devices-for-the-json-rpc-protocol" title="Link to this heading"></a></h4>
+<p>The Tryton GNU Health server listens to localhost at port 8000, not allowing direct connections from other workstations. If necessary, enter the following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>editconf
+</pre></div>
+</div>
+<p>You can edit the parameter <em>listen</em> in the <code class="code docutils literal notranslate"><span class="pre">[web]</span></code> section, to activate the network device so workstations in your net can connect. For example, the following block</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">[</span>web<span class="o">]</span>
+<span class="linenos">2</span><span class="nv">listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>*:8000
+</pre></div>
+</div>
+<p>will allow to connect to the server in the different devices of your system.</p>
+</section>
+<section id="setting-up-a-local-directory-for-attachments">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-setting-up-a-local-directory-for-attachments"></span><h4>Setting up a Local Directory for Attachments<a class="headerlink" href="#setting-up-a-local-directory-for-attachments" title="Link to this heading"></a></h4>
+<p>By default, Tryton uses a system-wide directory to store the attachments. It is advisable, in GNUHealth to keep the attachments in the <em>gnuhealth</em> user space.</p>
+<p>If necessary, edit the server configuration file trytond.conf and enter the attach directory under the <code class="code docutils literal notranslate"><span class="pre">[database]</span></code> section, for instance:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>editconf
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="linenos">2</span><span class="n">path</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span><span class="o">/</span><span class="n">attach</span>
+</pre></div>
+</div>
+<p>Since debian systems connect to database over a UNIX socket, add an extra <strong>/</strong> under the <code class="code docutils literal notranslate"><span class="pre">[database]</span></code> section, for instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="linenos">2</span><span class="n">uri</span> <span class="o">=</span> <span class="n">postgresql</span><span class="p">:</span><span class="o">///</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5432</span>
+</pre></div>
+</div>
+</section>
+<section id="configuring-the-log-file-optional">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-gnu-health-on-gnu-linux-and-freebsd-running-the-gnu-health-installer-configuring-the-log-file-optional"></span><h4>Configuring the log file (optional)<a class="headerlink" href="#configuring-the-log-file-optional" title="Link to this heading"></a></h4>
+<p>The way the server logs and tracks events is based on a log configuration file, that resides in the config directory <code class="code docutils literal notranslate"><span class="pre">&quot;${GNUHEALTH_DIR}&quot;/tryton/server/config/</span></code>.</p>
+<p>A default version is shipped, called &lt;tt&gt;gnuhealth_log.conf&lt;/tt&gt;. If necessary, enter the following into &lt;tt&gt;gnuhealth_log.conf&lt;/tt&gt;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span><span class="n">formatters</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="n">keys</span><span class="p">:</span> <span class="n">simple</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="p">[</span><span class="n">handlers</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="n">keys</span><span class="p">:</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">console</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="p">[</span><span class="n">loggers</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="n">keys</span><span class="p">:</span> <span class="n">root</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="p">[</span><span class="n">formatter_simple</span><span class="p">]</span>
+<span class="linenos">11</span><span class="nb">format</span><span class="p">:</span> <span class="p">[</span><span class="o">%</span><span class="p">(</span><span class="n">asctime</span><span class="p">)</span><span class="n">s</span><span class="p">]</span> <span class="o">%</span><span class="p">(</span><span class="n">levelname</span><span class="p">)</span><span class="n">s</span><span class="p">:</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="n">s</span><span class="p">:</span><span class="o">%</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="n">s</span>
+<span class="linenos">12</span><span class="n">datefmt</span><span class="p">:</span> <span class="o">%</span><span class="n">a</span> <span class="o">%</span><span class="n">b</span> <span class="o">%</span><span class="n">d</span> <span class="o">%</span><span class="n">H</span><span class="p">:</span><span class="o">%</span><span class="n">M</span><span class="p">:</span><span class="o">%</span><span class="n">S</span> <span class="o">%</span><span class="n">Y</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="p">[</span><span class="n">handler_rotate</span><span class="p">]</span>
+<span class="linenos">15</span><span class="n">class</span><span class="p">:</span> <span class="n">handlers</span><span class="o">.</span><span class="n">TimedRotatingFileHandler</span>
+<span class="linenos">16</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;/home/gnuhealth/gnuhealth/logs/gnuhealth.log&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">formatter</span><span class="p">:</span> <span class="n">simple</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="p">[</span><span class="n">handler_console</span><span class="p">]</span>
+<span class="linenos">20</span><span class="n">class</span><span class="p">:</span> <span class="n">StreamHandler</span>
+<span class="linenos">21</span><span class="n">formatter</span><span class="p">:</span> <span class="n">simple</span>
+<span class="linenos">22</span><span class="n">args</span><span class="p">:</span> <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="p">[</span><span class="n">logger_root</span><span class="p">]</span>
+<span class="linenos">25</span><span class="n">level</span><span class="p">:</span> <span class="n">WARNING</span>
+<span class="linenos">26</span><span class="n">handlers</span><span class="p">:</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">console</span>
+</pre></div>
+</div>
+<p>In this example (and in the standard file) the log file is written in the default logs directory. You can change it to fit your specific installation.</p>
+<p>In order to use logging, you need to provide the <em>–logconf</em> option, along with the path to the log configuration file &lt;tt&gt;gnuhealth_log.conf&lt;/tt&gt; as argument, when invoking the Tryton server in the next section (e.g. <code class="code docutils literal notranslate"><span class="pre">trytond</span> <span class="pre">--logconf</span> <span class="pre">&quot;${GNUHEALTH_DIR}&quot;/tryton/server/config/gnuhealth_log.conf</span></code>).</p>
+<p>For more information, check the following resources:</p>
+<ul class="simple">
+<li><p>Python logging facility logging tutorial: <a class="reference external" href="https://docs.python.org/3/howto/logging.html#.logging-basic-tutorial">https://docs.python.org/3/howto/logging.html#.logging-basic-tutorial</a></p></li>
+<li><p>Tryton Server logging documentation: <a class="reference external" href="http://trytond.readthedocs.org/en/latest/topics/logs.html">http://trytond.readthedocs.org/en/latest/topics/logs.html</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="initialize-the-database-instance">
+<span id="hmis-installation-vanilla-vanilla-installation-initialize-the-database-instance"></span><h2>Initialize the database instance<a class="headerlink" href="#initialize-the-database-instance" title="Link to this heading"></a></h2>
+<p>Create the database</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>createdb<span class="w"> </span>health
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use “health” as an example, choose the name of your database, but keep it short and only alphanumeric chars</p>
+</div>
+<p>Change to your newly installed system (use the alias <em>cdexe</em>):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>cdexe
+</pre></div>
+</div>
+<p>and initialize the instance:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>python3<span class="w"> </span>./trytond-admin<span class="w"> </span>--all<span class="w"> </span>--database<span class="o">=</span>health
+</pre></div>
+</div>
+<p>You will be asked to provide a password for the “admin” user.</p>
+<p>If everything goes well, you are ready to start the GNU Health HMIS node server.</p>
+<p>Start the GNU Health HMIS node</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nb">cd</span><span class="w"> </span>./start_gnuhealth.sh
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As mentioned in the previous section, use the ‘’–logconf [path]’’ option to specify the path of the logging configuration</p>
+</div>
+<p>You can execute the GNU Health server in the background (<code class="code docutils literal notranslate"><span class="pre">using</span> <span class="pre">nohup</span> <span class="pre">./start_gnuhealth.sh</span> <span class="pre">&amp;</span></code>) and check the output in the file <code class="code docutils literal notranslate"><span class="pre">nohup.out</span></code>.</p>
+</section>
+<section id="creating-a-systemd-service-for-the-gnu-health-server">
+<span id="hmis-installation-vanilla-vanilla-installation-creating-a-systemd-service-for-the-gnu-health-server"></span><h2>Creating a Systemd service for the GNU Health server<a class="headerlink" href="#creating-a-systemd-service-for-the-gnu-health-server" title="Link to this heading"></a></h2>
+<p>If you use the standard installation method, you can use the following scripts to automate the startup/stop of the GNU Health instance using systemd services.</p>
+<section id="gnu-health-service-unit-file">
+<span id="hmis-installation-vanilla-vanilla-installation-creating-a-systemd-service-for-the-gnu-health-server-gnu-health-service-unit-file"></span><h3>GNU Health service unit file<a class="headerlink" href="#gnu-health-service-unit-file" title="Link to this heading"></a></h3>
+<p>Create the GNU Health Unit file under <code class="code docutils literal notranslate"><span class="pre">/usr/lib/systemd/system/gnuhealth.service</span></code>:</p>
+<p>For Ubuntu 18.04 LTS users: <code class="code docutils literal notranslate"><span class="pre">/etc/systemd/system/gnuhealth.service</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="n">Description</span><span class="o">=</span><span class="n">GNU</span> <span class="n">Health</span> <span class="n">Server</span>
+<span class="linenos"> 3</span><span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="linenos"> 6</span><span class="n">Type</span><span class="o">=</span><span class="n">simple</span>
+<span class="linenos"> 7</span><span class="n">User</span><span class="o">=</span><span class="n">gnuhealth</span>
+<span class="linenos"> 8</span><span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span>
+<span class="linenos"> 9</span><span class="n">ExecStart</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span><span class="o">/</span><span class="n">start_gnuhealth</span><span class="o">.</span><span class="n">sh</span>
+<span class="linenos">10</span><span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">abort</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="linenos">13</span><span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</section>
+<section id="starting-and-stopping-the-gnu-health-service">
+<span id="hmis-installation-vanilla-vanilla-installation-creating-a-systemd-service-for-the-gnu-health-server-starting-and-stopping-the-gnu-health-service"></span><h3>Starting and Stopping the GNU Health service<a class="headerlink" href="#starting-and-stopping-the-gnu-health-service" title="Link to this heading"></a></h3>
+<p>You can issue the commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>systemctl<span class="w"> </span>start<span class="w"> </span>gnuhealth
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>systemctl<span class="w"> </span>stop<span class="w"> </span>gnuhealth
+</pre></div>
+</div>
+</section>
+<section id="enable-the-service-to-start-at-boot-time">
+<span id="hmis-installation-vanilla-vanilla-installation-creating-a-systemd-service-for-the-gnu-health-server-enable-the-service-to-start-at-boot-time"></span><h3>Enable the service to start at boot time<a class="headerlink" href="#enable-the-service-to-start-at-boot-time" title="Link to this heading"></a></h3>
+<p>If you want to automatically start the GNU Health server whenever you start the operating system, you can enable the service with the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>gnuhealth
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-a-wsgi-server-for-gnu-health-hospital-management-component">
+<span id="hmis-installation-vanilla-vanilla-installation-using-a-wsgi-server-for-gnu-health-hospital-management-component"></span><h2>Using a WSGI Server for GNU Health Hospital Management Component<a class="headerlink" href="#using-a-wsgi-server-for-gnu-health-hospital-management-component" title="Link to this heading"></a></h2>
+<p>GNU Health HMIS uses by default the werkzeug server. This should be valid only for development scenarios.
+For production servers, GNU Health HMIS will benefit from a Web Server Gateway Interface (WSGI), such as uWSGI and a web server that supports reverse proxy, as NGINX.</p>
+<section id="your-trytond-configuration-file">
+<span id="hmis-installation-vanilla-vanilla-installation-using-a-wsgi-server-for-gnu-health-hospital-management-component-your-trytond-configuration-file"></span><h3>Your Trytond configuration file<a class="headerlink" href="#your-trytond-configuration-file" title="Link to this heading"></a></h3>
+<p>Edit your trytond.conf file to meet the requirements. You can edit this file directly using the alias <code class="code docutils literal notranslate"><span class="pre">editconf</span></code> with the gnuhealth user.</p>
+<p>This sample enables access both to the GTK and webclient.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">database</span><span class="p">]</span>
+<span class="linenos">2</span><span class="n">uri</span> <span class="o">=</span> <span class="n">postgresql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5432</span>
+<span class="linenos">3</span><span class="n">path</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span><span class="o">/</span><span class="n">attach</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="p">[</span><span class="n">web</span><span class="p">]</span>
+<span class="linenos">6</span><span class="n">listen</span> <span class="o">=</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span>
+<span class="linenos">7</span><span class="n">root</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gnuhealth</span><span class="o">/</span><span class="n">sao</span><span class="o">/</span><span class="n">package</span>
+</pre></div>
+</div>
+</section>
+<section id="uwsgi-configuration-file">
+<span id="hmis-installation-vanilla-vanilla-installation-using-a-wsgi-server-for-gnu-health-hospital-management-component-uwsgi-configuration-file"></span><h3>uWSGI configuration file<a class="headerlink" href="#uwsgi-configuration-file" title="Link to this heading"></a></h3>
+<p>This is a sample for the gnuhealth uwsgi .ini (<code class="code docutils literal notranslate"><span class="pre">gh.ini</span></code>) file. Make sure NINGX user has the appropriate permissions to the uwsgi socket.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="p">[</span><span class="n">uwsgi</span><span class="p">]</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">master</span> <span class="o">=</span> <span class="n">true</span>
+<span class="linenos"> 4</span><span class="n">processes</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos"> 5</span><span class="n">plugins</span> <span class="o">=</span> <span class="n">python3</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">socket</span> <span class="o">=</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">uwsgi</span><span class="o">.</span><span class="n">sock</span>
+<span class="linenos"> 8</span><span class="n">chmod</span><span class="o">-</span><span class="n">socket</span><span class="o">=</span><span class="mi">660</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="n">module</span><span class="o">=</span><span class="n">trytond</span><span class="o">.</span><span class="n">application</span><span class="p">:</span><span class="n">app</span>
+</pre></div>
+</div>
+</section>
+<section id="configuring-nginx-as-a-reverse-proxy-for-gnu-health-hmis">
+<span id="hmis-installation-vanilla-vanilla-installation-using-a-wsgi-server-for-gnu-health-hospital-management-component-configuring-nginx-as-a-reverse-proxy-for-gnu-health-hmis"></span><h3>Configuring NGINX as a reverse proxy for GNU Health HMIS<a class="headerlink" href="#configuring-nginx-as-a-reverse-proxy-for-gnu-health-hmis" title="Link to this heading"></a></h3>
+<p>In this sample, NINGX will listen to 8100 in HTTPS mode, to requests coming from the web clients.
+It also listens to port 8000 for the native GTK client.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Virtual host for demo web client using TLS and listening in 8100</span>
+<span class="linenos"> 2</span><span class="w">    </span>server<span class="w"> </span><span class="o">{</span>
+<span class="linenos"> 3</span><span class="w">        </span>listen<span class="w">       </span><span class="m">8100</span><span class="w"> </span>ssl<span class="p">;</span>
+<span class="linenos"> 4</span><span class="w">        </span>server_name<span class="w">  </span>your_hostname<span class="p">;</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="w">        </span>ssl_certificate<span class="w">      </span>/path/to/your/gnuhealth.crt<span class="p">;</span>
+<span class="linenos"> 7</span><span class="w">        </span>ssl_certificate_key<span class="w">  </span>/path/to/your/gnuhealth.key<span class="p">;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="w">        </span>ssl_session_cache<span class="w">    </span>shared:SSL:1m<span class="p">;</span>
+<span class="linenos">10</span><span class="w">        </span>ssl_session_timeout<span class="w">  </span>5m<span class="p">;</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="w">        </span>ssl_ciphers<span class="w">  </span>HIGH:!aNULL:!MD5<span class="p">;</span>
+<span class="linenos">13</span><span class="w">        </span>ssl_prefer_server_ciphers<span class="w">  </span>on<span class="p">;</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">        </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<span class="linenos">16</span><span class="w">            </span>include<span class="w">         </span>uwsgi_params<span class="p">;</span>
+<span class="linenos">17</span><span class="w">            </span>uwsgi_pass<span class="w">      </span>unix:/tmp/uwsgi.sock<span class="p">;</span>
+<span class="linenos">18</span><span class="w">        </span><span class="o">}</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">    </span><span class="c1"># Virtual host for GNU Health GTK Client on 8000</span>
+<span class="linenos">21</span><span class="w">    </span>server<span class="w"> </span><span class="o">{</span>
+<span class="linenos">22</span><span class="w">        </span>listen<span class="w">       </span><span class="m">8000</span><span class="p">;</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">        </span>location<span class="w"> </span>/<span class="w"> </span><span class="o">{</span>
+<span class="linenos">25</span><span class="w">            </span>include<span class="w">         </span>uwsgi_params<span class="p">;</span>
+<span class="linenos">26</span><span class="w">            </span>uwsgi_pass<span class="w">      </span>unix:/tmp/uwsgi.sock<span class="p">;</span>
+<span class="linenos">27</span><span class="w">        </span><span class="o">}</span>
+<span class="linenos">28</span><span class="w">    </span><span class="o">}</span>
+<span class="linenos">29</span><span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="putting-everything-together-and-booting-the-gnu-health-server">
+<span id="hmis-installation-vanilla-vanilla-installation-using-a-wsgi-server-for-gnu-health-hospital-management-component-putting-everything-together-and-booting-the-gnu-health-server"></span><h3>Putting everything together and booting the GNU Health Server<a class="headerlink" href="#putting-everything-together-and-booting-the-gnu-health-server" title="Link to this heading"></a></h3>
+<p>Once you have configured the three elements (Trytond server, uwsgi and NGINX) is time to put in into production</p>
+<ul class="simple">
+<li><p>Make sure your NGINX server is running:</p></li>
+<li><p>Start uWSGI with the corresponding gnuhealth .ini file:</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>uwsgi<span class="w"> </span><span class="nv">$HOME</span>/gh.ini<span class="w"> </span>--enable-threads<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installation-of-the-gnu-health-client">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client"></span><h2>Installation of the GNU Health Client<a class="headerlink" href="#installation-of-the-gnu-health-client" title="Link to this heading"></a></h2>
+<section id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-requirements">
+<span id="id1"></span><h3>Requirements<a class="headerlink" href="#hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-requirements" title="Link to this heading"></a></h3>
+<section id="opensuse">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-requirements-opensuse"></span><h4>openSUSE<a class="headerlink" href="#opensuse" title="Link to this heading"></a></h4>
+<p><strong>Tested on openSUSE Leap 15.1 and Tumbleweed</strong></p>
+<ul class="simple">
+<li><p>Disable Non-OSS repositoriess</p></li>
+<li><p>Desktop with KDE Plasma</p></li>
+<li><p>Create user “gnuhealth”</p></li>
+<li><p>Login as “gnuhealth” user</p></li>
+<li><p>Get the required packages / dependencies</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>cairo-devel<span class="w"> </span>pkg-config<span class="w"> </span>python3-devel<span class="w"> </span>gcc<span class="w"> </span>gobject-introspection-devel<span class="w"> </span>python3-cairo<span class="w"> </span>python3-gobject-cairo<span class="w"> </span>python3-gobject-Gdk<span class="w"> </span>typelib-1_0-Gtk-3_0
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gnu-health-client-installation-with-pip3">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-gnu-health-client-installation-with-pip3"></span><h3>GNU Health Client installation with pip3<a class="headerlink" href="#gnu-health-client-installation-with-pip3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Update PATH. To make changes permanent, add this line in <code class="code docutils literal notranslate"><span class="pre">$HOME/.bashrc</span></code></p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$HOME</span>/.local/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Update pip3</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>--user<span class="w"> </span>pip
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Install GNU Health client</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>gnuhealth-client
+</pre></div>
+</div>
+<p>The following command will boot your GNU Health client:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>gnuhealth-client
+</pre></div>
+</div>
+</section>
+<section id="alternative-methods">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-alternative-methods"></span><h3>Alternative Methods<a class="headerlink" href="#alternative-methods" title="Link to this heading"></a></h3>
+<section id="system-packages">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-alternative-methods-system-packages"></span><h4>System Packages<a class="headerlink" href="#system-packages" title="Link to this heading"></a></h4>
+<p>Instead from source as described above, you can install the GNU Health Client from pre-build packages as well.
+openSUSE offer packages that you can install with your systems package manager. Make sure you get the current <strong>gnuhealth-client version 4.0.x</strong></p>
+</section>
+<section id="microsoft-windows-and-macos">
+<span id="hmis-installation-vanilla-vanilla-installation-installation-of-the-gnu-health-client-alternative-methods-microsoft-windows-and-macos"></span><h4>Microsoft Windows and macOS<a class="headerlink" href="#microsoft-windows-and-macos" title="Link to this heading"></a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As GNU Health is free/libre software, developed primarily for free/libre operating systems and with the philosophy of free software in mind, it is recommended to use free/libre software with GNU Health, and GNU/Linux or other free/libre operating system for the client. The development of all GNU Health components (server, client, plugins, Thalamus, GNU Health Federation) is done and focused on Free / Libre  operating systems.</p>
+</div>
+<p>If you use Microsoft Windows or macOS, you can try using the Tryton 6.0 client, which may be compatible with GNU Health 4.0. Keep in mind that the windows client does not have the GNU Health commands, nor the plugins like GNU Health GNUPG crypto or GNU Health Camera and Federation Resource Locator.</p>
+<p><a class="reference external" href="https://downloads.tryton.org/6.0/tryton-64bit-last.exe">Download the Tryton client executable (Windows)</a> and follow the instructions.</p>
+</section>
+</section>
+</section>
+<section id="logging-into-the-application">
+<span id="hmis-installation-vanilla-vanilla-installation-logging-into-the-application"></span><h2>Logging into the Application<a class="headerlink" href="#logging-into-the-application" title="Link to this heading"></a></h2>
+<p>Now that you’re back at the login screen, you’ll notice that the selected profile is the one you’ve just created. Fill in the login form:</p>
+<ul class="simple">
+<li><p>User name: the one you used previously (usually <code class="code docutils literal notranslate"><span class="pre">admin</span></code>)</p></li>
+<li><p>Password: the one entered twice in the previous section</p></li>
+</ul>
+<p>Login credentials for The Demo database: <a class="reference internal" href="../../demo_test/demodb.html#demo-test-demodb-the-demo-database-online-community-servers-gnu-health-federation-community-hub-connection-to-the-gnu-health-hmis-and-lims"><span class="std std-ref">Connection to the GNU Health HMIS and LIMS</span></a></p>
+</section>
+<section id="installing-the-default-modules">
+<span id="hmis-installation-vanilla-vanilla-installation-installing-the-default-modules"></span><h2>Installing the Default Modules<a class="headerlink" href="#installing-the-default-modules" title="Link to this heading"></a></h2>
+<p>From this point on, you will use the client for almost every process. Start with the installation of the basic functionality:</p>
+<ol class="arabic simple">
+<li><p>After you’ve created the database, the system will ask you to create some new users. You can skip this step for now.</p></li>
+<li><p>You are then presented with a list of modules that will provide the functionality you desire. If you don’t see the <em>Modules</em> window, navigate to it on the left side: <em>Administration → Modules → Modules</em>.</p></li>
+<li><p>Select the <code class="code docutils literal notranslate"><span class="pre">health_profile</span></code> module, and click on <strong>Mark for installation</strong>.</p></li>
+<li><p>Click on the <strong>Action</strong> icon (two cogwweels, previous versions used a blue rotated square) and select <strong>Perform Pending Installation/Upgrade</strong>:</p></li>
+<li><p>Tryton will automatically select all the dependent modules required for the installation:</p></li>
+<li><p>Click on <strong>Start Upgrade</strong>. This process will take a while, depending on the computer where GNU Health is being installed on. Once it’s done, the following message appears.</p></li>
+</ol>
+</section>
+<section id="creating-a-company">
+<span id="hmis-installation-vanilla-vanilla-installation-creating-a-company"></span><h2>Creating a Company<a class="headerlink" href="#creating-a-company" title="Link to this heading"></a></h2>
+<p>The next thing you need to do is to create the initial company, that will be your health center. You will be presented with a wizard to create it.</p>
+<p>Press <code class="code docutils literal notranslate"><span class="pre">F3</span></code> to create a new company.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the party form, please make sure you <strong>set the institution attribute</strong>. You will link this company to your main health institution later on. Please refer to the screenshot provided in this section for details.</p>
+</div>
+</section>
+<section id="disabling-demo-users-in-production-environments">
+<span id="hmis-installation-vanilla-vanilla-installation-disabling-demo-users-in-production-environments"></span><h2>Disabling demo users in production environments<a class="headerlink" href="#disabling-demo-users-in-production-environments" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For security reasons, you <strong>must</strong> deactivate demo users in production environments.</p>
+</div>
+<p>GNU Health comes with a set of pre-defined users for demo purposes. They all have the prefix <code class="code docutils literal notranslate"><span class="pre">demo_</span></code> (<code class="code docutils literal notranslate"><span class="pre">demo_doctor</span></code>, <code class="code docutils literal notranslate"><span class="pre">demo_front_desk</span></code>, <code class="code docutils literal notranslate"><span class="pre">demo_nurse</span></code>… ).</p>
+<p>To deactivate the users:</p>
+<ol class="arabic simple">
+<li><p>Navigate to Administration &gt; Users &gt; Users in the sidebar.</p></li>
+<li><p>In filters, choose <code class="code docutils literal notranslate"><span class="pre">Login:</span> <span class="pre">demo_</span></code> and <code class="code docutils literal notranslate"><span class="pre">Active:</span> <span class="pre">True</span></code></p></li>
+<li><p>Unset the “active” flag of each of them (untick the “Active” boxes). The demo users are now de-activated in your environment.</p></li>
+</ol>
+<p>Look at the screenshot captioned <em>Deactivation of demo users in production environments</em> for an example (the Active checkboxes haven’t been unticked).</p>
+</section>
+<section id="customizing-the-gnu-health-client">
+<span id="hmis-installation-vanilla-vanilla-installation-customizing-the-gnu-health-client"></span><h2>Customizing the GNU Health Client<a class="headerlink" href="#customizing-the-gnu-health-client" title="Link to this heading"></a></h2>
+<p>For GNU/Linux and other free operating systems, the GNU Health GTK client configuration file can be found at:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nv">$HOME</span>/.config/gnuhealth/&lt;VERSION&gt;/gnuhealth-client.conf
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="nv">$HOME</span>/.config/gnuhealth/4.0/gnuhealth-client.conf
+</pre></div>
+</div>
+<section id="using-a-custom-greeter-banner">
+<span id="hmis-installation-vanilla-vanilla-installation-customizing-the-gnu-health-client-using-a-custom-greeter-banner"></span><h3>Using a custom greeter / banner<a class="headerlink" href="#using-a-custom-greeter-banner" title="Link to this heading"></a></h3>
+<p>You can customize the login greeter banner to fit your institution.</p>
+<p>In the section <code class="code docutils literal notranslate"><span class="pre">[client]</span></code>, include the banner parameter with the absolute path of the png file.</p>
+<p>Something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="p">[</span><span class="n">client</span><span class="p">]</span>
+<span class="linenos">2</span><span class="n">banner</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">yourlogin</span><span class="o">/</span><span class="n">myhospitalbanner</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>The default resolution of the banner is 500 x 128 pixels. Adjust yours to approximately this size.</p>
+</section>
+</section>
+<section id="completion">
+<span id="hmis-installation-vanilla-vanilla-installation-completion"></span><h2>Completion<a class="headerlink" href="#completion" title="Link to this heading"></a></h2>
+<p>Congratulations! You have completed the initial installation of GNU Health. In the next chapter we will discuss how to add functionality by installing additional modules.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ansible.html" class="btn btn-neutral float-left" title="Ansible Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="other.html" class="btn btn-neutral float-right" title="Other Installation Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, GNU Solidario.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
