@@ -12,6 +12,12 @@ Individuals health depends a lot on their lifestyle. Maintaining physical and me
 
 The module :code:`health_lifestyle` collects the information of the patient's lifestyle working on various aspects such as diet and exersice, addictions, sexuality and safety.
 
+It can be found following :code:`Health->Patient`. The a new *Lifestyle* Tab appears after module activation.
+
+.. thumbnail:: ../images/patient_lifestyle.png
+	:show_caption: true
+   	:title: View of the Patient and The Lifestyle Tab.
+
 .. _modulesindetail-lifestyle:lifestyle-*diet_and_exercise*_tab:
 
 *Diet and Exercise* Tab
